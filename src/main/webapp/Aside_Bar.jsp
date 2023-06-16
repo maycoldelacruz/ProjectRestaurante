@@ -35,11 +35,9 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-
 </head>
 
 <body>
-     
     
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
