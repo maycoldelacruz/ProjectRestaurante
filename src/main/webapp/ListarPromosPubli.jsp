@@ -20,7 +20,7 @@
 
 <body class="animsition">
      <%
-     List<Contenido> Listado = (List<Contenido>) request.getAttribute("contenidos"); 
+     List<Publicacion> Listado = (List<Publicacion>) request.getAttribute("publicaciones"); 
      %>
      <!-- DIV PRINCIPAL--> 
      <div class="page-wrapper">
@@ -43,9 +43,9 @@
 					<div class="container-fluid">
 
 						<h2>
-							<strong>Listado de Contenidos</strong>
+							<strong>Promociones publicadas</strong>
 						</h2>
-						<p>Listado de contenidos subidos a la fecha</p>
+						<h3>Listado de Promociones</h3>
 					</div>
 						
 					<div class="row m-t-30">
@@ -60,33 +60,26 @@
 							        <tr>
 							            <th>ID</th>
 							            <th>Título</th>
-							            <th>Descripción</th>
-							            <th>Archivo</th>
-							            <th>Fecha de Creación</th>
-							            <th>Usuario </th>
+							            <th>Imagen</th>							            
+							            <th>Fecha de Publicacion</th>
+							            <th>Estado</th>
 							            <th>Acciones</th>
 							        </tr>
 							    </thead>
 						        <tbody>
-						        	 <% for (Contenido contenido : Listado) {%>
+						        	 <% for (Publicacion publicacion : Listado) {%>
 						        	 <tr>
-						        	 <td><%=contenido.getIdContenido() %></td>
-						                <td><%=contenido.getTitulo() %></td>
-						                <td><%=contenido.getDescripcion() %></td>
+						        	 <td><%=publicacion.getIdPublicacion() %></td>
+						                <td><%=publicacion.getTitulo() %></td>
 						                <td>
-										    <img src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(contenido.getArchivo()) %>" alt="Imagen del contenido" width="50">
+										    <img src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(publicacion.getArchivo()) %>" alt="Imagen del contenido" width="50">
 										</td>
 
-						                <td><%=contenido.getFechaCreacion() %></td>
+						                <td><%=publicacion.getFechapublicacion()%></td>
 						                
-						                <td><%=contenido.getUNAME() %></td>
+						                <td><%=publicacion.getEstado()%></td>
 						                <td>
-						                	<a href="PublicacionServlet?action=llevar&idContenido=<%=contenido.getIdContenido() %>">Publicar</a>
-						                	<a href="PublicacionServlet?action=llevarpro&idContenido=<%=contenido.getIdContenido() %>">Programar</a>
-						                	
-						                    <a href="ContenidoServlet?action=edit&idContenido=<%=contenido.getIdContenido() %>">Editar</a>
-						                    <a href="ContenidoServlet?action=delete&idContenido=<%= contenido.getIdContenido() %>">Eliminar</a>
-
+						                	<a href="PublicacionServlet?action=delete&idPublicacion=<%= publicacion.getIdPublicacion()%>">Eliminar</a>
 						                </td>
 						               </tr>
 						               <%} %>

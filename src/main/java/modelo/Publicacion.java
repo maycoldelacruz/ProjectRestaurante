@@ -9,6 +9,8 @@ public class Publicacion {
 	private int idRedSocial;
 	private Date fechapublicacion;
 	private String estado;
+	private String titulo;
+	private byte[] archivo;
 	
 	
 	public Publicacion() {
@@ -23,6 +25,28 @@ public class Publicacion {
 		this.fechapublicacion = fechapublicacion;
 		this.estado = estado;
 	}
+	
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public byte[] getArchivo() {
+		return archivo;
+	}
+
+	public void setArchivo(byte[] archivo) {
+		this.archivo = archivo;
+	}
+
+	public Date getFechapublicacion() {
+		return fechapublicacion;
+	}
+
 	public int getIdPublicacion() {
 		return idPublicacion;
 	}
@@ -41,11 +65,9 @@ public class Publicacion {
 	public void setIdRedSocial(int idRedSocial) {
 		this.idRedSocial = idRedSocial;
 	}
-	public Date getFechapublicacionDate() {
-		return fechapublicacion;
-	}
-	public void setFechapublicacion(Date fecha_publicacionDate) {
-		this.fechapublicacion = fecha_publicacionDate;
+	
+	public void setFechapublicacion(Date fecha_publicacion) {
+		this.fechapublicacion = fecha_publicacion;
 	}
 	public String getEstado() {
 		return estado;

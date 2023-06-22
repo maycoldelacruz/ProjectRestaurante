@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                <div class="statistic__item">
-                                     <h2><a href="PublicacionServlet?action=list">Contenido Publicado</a></h2>
+                                     <h2><a href="PublicacionServlet?action=listarpublic">Promociones Publicadas</a></h2>
                                     <div class="icon">
                                         <i class="zmdi zmdi-calendar-note"></i>
                                     </div>
@@ -67,7 +67,15 @@
                             </div>
                               <div class="col-md-6 col-lg-3">
                                <div class="statistic__item">
-                                     <h2><a href="PublicacionServlet?action=list">Publicaciones Programadas</a></h2>
+                                     <h2><a href="PublicacionServlet?action=listarprogra">Promociones Programadas</a></h2>
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-calendar-note"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                               <div class="statistic__item">
+                                     <h2><a href="PublicacionServlet?action=verpublic">Ver Promociones Activas</a></h2>
                                     <div class="icon">
                                         <i class="zmdi zmdi-calendar-note"></i>
                                     </div>

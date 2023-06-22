@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Publicar Contenido</title>
+<title>Publicar Promociones</title>
     
     <!--SCRIPT-->
     <jsp:include page="Main_Vendor.jsp" />
@@ -33,11 +33,10 @@
             <!-- CONTENIDO-->
 			<div class="container justify-content-center">
 			  <% Contenido obj = (Contenido) request.getAttribute("contenido"); 
-			  int ide;
 			  %>
 			  <div class="row justify-content-center">
 			    <div class="col-md-6">
-			      <form action="PublicacionServlet?action=create" id="frmagregar" method="post" enctype="multipart/form-data">
+			      <form action="PublicacionServlet?action=create" id="frmagregar" method="post" >
 			        <div id="contact-form" class="form-container" data-form-container>
 			          <div class="col text-right">
 			            <a href="ContenidoServlet?action=list"><input type="button" class="btn btn-success" value="Volver"></a>

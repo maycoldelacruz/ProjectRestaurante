@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Subir Contenido</title>
+<title>Crear Contenido </title>
     <!--SCRIPT-->
     <jsp:include page="Main_Vendor.jsp" />
     <!--END SCRIPT-->
+    
 </head>
 
 <body class="animsition">
@@ -27,27 +28,29 @@
              <!-- END MENU PANEL-->
           
             <!-- CONTENIDO-->
+            <section class="statistic">
 			   <div class="container justify-content-center">
-				  <div class="row justify-content-center">
-				    <div class="col-md-6">
+				  <div class="row justify-content">
+				    <div class="col-md-8">
 				      <form action="ContenidoServlet?action=create" id="frmagregar" method="post" enctype="multipart/form-data">
 				        <div id="contact-form" class="form-container" data-form-container>
 				          <div class="col text-right">
 				            <a href="Menu_RSociales.jsp"><input type="button" class="btn btn-success" value="Volver"></a>
 				          </div>
-				          <div>
-				            <h2>Subir Contenido</h2>
+				          <div class="row justify-content-center">
+				            <h2><b><i>Crear Contenido Promocional</i></b></h2>
 				          </div>
 				          <div class="form-group">
-				            <label for="titulo">Título</label>
+				            <label>Ingresar título del contenido</label>
 				            <input type="text" class="form-control" id="titulo" name="titulo">
 				          </div>
 				          <div class="form-group">
-				            <label for="descripcion">Descripción</label>
-				            <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
-				          </div>
+						    <label for="descripcion">Redactar descripción</label>
+						    <textarea class="form-control" id="descripcion" name="descripcion" oninput="ajustarTexto(this)" style="font-weight: bold;resize: vertical;  "></textarea>
+						</div>
+
 				          <div class="form-group">
-				            <label for="imagen">Selecciona Contenido</label>
+				            <label for="imagen">Selecciona imagen promocional</label>
 				            <div class="custom-file">
 				              <input type="file" class="form-control-file" id="imagen" name="imagen" onchange="mostrarImagen(event)">
 				              <span style="display: none;"    id="nombreArchivo"></span>
@@ -68,6 +71,7 @@
 				    </div>
 				  </div>
 				</div>
+				</section>
 	
 <script>
 function mostrarImagen(event) {
@@ -100,6 +104,12 @@ function mostrarNombreArchivo(event) {
   }
 
   document.getElementById("imagen").addEventListener("change", mostrarNombreArchivo);
+  
+  function ajustarTexto(textarea) {
+	    textarea.style.height = "auto";
+	    textarea.style.height = textarea.scrollHeight + "px";
+	}
+
 </script>
 			
 			<!-- CONTENIDO-->

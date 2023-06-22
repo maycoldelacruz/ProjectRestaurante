@@ -31,49 +31,62 @@
              <!-- END MENU PANEL-->
           
             <!-- CONTENIDO-->
+             <section class="statistic">
 			<div class="container justify-content-center">
-  <% Contenido obj = (Contenido) request.getAttribute("contenido"); %>
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form action="ContenidoServlet?action=update" id="frmagregar" method="post" enctype="multipart/form-data">
-        <div id="contact-form" class="form-container" data-form-container>
-          <div class="col text-right">
-            <a href="ContenidoServlet?action=list"><input type="button" class="btn btn-success" value="Volver"></a>
-          </div>
-          <div>
-            <h2>Actualizar Contenido</h2>
-          </div>
-          <div class="form-group">
-            <input type="text" name="idContenido" style="display:none;" value="<%= obj.getIdContenido() %>">
-            <h3 >Título</h3>
-            <input type="text" class="form-control" id="titulo" name="titulo" value="<%= obj.getTitulo() %>">
-          </div>
-          <div class="form-group">
-            <h3 >Descripción</h3>
-            <textarea class="form-control" id="descripcion" name="descripcion"><%= obj.getDescripcion() %></textarea>
-          </div>
-          <div class="form-group">
-            <label for="imagen">Selecciona Contenido</label>
-            <div class="">
-              <input type="file" class="" id="imagen" name="imagen" value="" onchange="mostrarImagen(event)">
-              <span style="display: block;" id="nombreArchivo"><%= obj.getNombreArchivo() %></span>
-            </div>
-          </div>
-          <div id="vistaPreviaImagen" class="form-group" > 
-            <label for="imagenVistaPrevia">Vista previa:</label>
-            <img id="imagenVistaPrevia" class="img-fluid" src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(obj.getArchivo()) %>" >
-          </div>
-          <div class="row">
-            <div class="col text-left">
-              <input type="submit" class="btn btn-primary" value="Guardar">
-              <a href="ContenidoServlet?action=list"><input type="submit" class="btn btn-danger" value="Cancelar"></a>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+			
+			  <% Contenido obj = (Contenido) request.getAttribute("contenido"); %>
+			  
+			  <div class="row justify-content">
+			    <div class="col-md-8">
+			    
+			      <form action="ContenidoServlet?action=update" id="frmagregar" method="post" enctype="multipart/form-data">
+			        <div id="contact-form" class="form-container" data-form-container>
+			        
+				          <div class="col text-right">				          
+				            <a href="ContenidoServlet?action=list"><input type="button" class="btn btn-success" value="Volver"></a>				            
+				          </div>
+				          
+				          <div class="row justify-content-center">
+				            <h2><b><i>Actualizar Contenido Promocional</i></b></h2>
+				          </div>
+				          
+				          <div class="form-group">
+				            <input type="text" name="idContenido" style="display:none;" value="<%= obj.getIdContenido() %>">
+				            <label>Título</label> 
+				            <input type="text" class="form-control" id="titulo" name="titulo" value="<%= obj.getTitulo() %>">
+				          </div>
+				          
+				          <div class="form-group">
+				            <h3 >Descripción</h3>
+				            <textarea class="form-control" id="descripcion" name="descripcion"><%= obj.getDescripcion() %></textarea>
+				          </div>
+				          
+				          <div class="form-group">
+				            <label for="imagen">Selecciona Contenido</label>
+				            <div class="">
+				              <input type="file" class="" id="imagen" name="imagen" value="" onchange="mostrarImagen(event)">
+				              <span style="display: block;" id="nombreArchivo"><%= obj.getNombreArchivo() %></span>
+				            </div>
+				          </div>
+				          
+				          <div id="vistaPreviaImagen" class="form-group" > 
+				            <label for="imagenVistaPrevia">Vista previa:</label>
+				            <img id="imagenVistaPrevia" class="img-fluid" src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(obj.getArchivo()) %>" >
+				          </div>
+				          
+				          <div class="row">
+				            <div class="col text-left">
+				              <input type="submit" class="btn btn-primary" value="Guardar">
+				              <a href="ContenidoServlet?action=list"><input type="submit" class="btn btn-danger" value="Cancelar"></a>
+				            </div>
+				          </div>
+			        </div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			</section>
+			
 
 <script>
   function mostrarImagen(event) {
