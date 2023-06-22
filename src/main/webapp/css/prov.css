@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+label{
+	display: block; 
+	font-weight: bold;
+}
+
+input[type="text"]{
+	display: block;
+	margin-bottom: 20px; 
+	height: 25px; 
+	width: 350px;
+}
+
+input[type="date"]{
+	display: block;
+	margin-bottom: 20px; 
+	height: 25px; 
+	width: 350px;
+}
+
