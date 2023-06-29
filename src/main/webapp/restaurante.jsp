@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*, java.sql.*, dao.*, modelo.*" %>
+<%@ page import="java.util.*, java.sql.*, modelo.*, util.*, java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,7 +23,7 @@
   -->
     <div class="preload" data-preaload>
       <div class="circle"></div>
-      <p class="text">Perú<br />Gourmet</p>
+      <p class="text">Perú<br />Criollo</p>
     </div>
 
     <!-- 
@@ -66,7 +66,7 @@
             <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
           </div>
 
-          <span class="span">perugourmet@gmail.com</span>
+          <span class="span">perucriollo@gmail.com</span>
         </a>
       </div>
     </div>
@@ -79,7 +79,7 @@
       <div class="container">
         <a href="#" class="logo">
           <img
-            src="./assets/images/logo.svg"
+            src="./images/icon/logo-white.png"
             width="160"
             height="50"
             alt="Grilli - Home" />
@@ -151,7 +151,7 @@
             <p class="body-4 navbar-text">Abierto: 9.30 am - 2.30pm</p>
 
             <a href="mailto:booking@grilli.com" class="body-4 sidebar-link"
-              >perugourmet@gmail.com</a
+              >perucriollo@gmail.com</a
             >
 
             <div class="separator"></div>
@@ -791,14 +791,14 @@
             </ul>
 
             <p class="menu-text text-center">
-              During winter daily from <span class="span">7:00 pm</span> to
+              Todos los días desde las <span class="span">7:00 pm</span> hasta las
               <span class="span">9:00 pm</span>
             </p>
 
             <a href="#" class="btn btn-primary">
-              <span class="text text-1">View All Menu</span>
+              <span class="text text-1">Ver todo el menú</span>
 
-              <span class="text text-2" aria-hidden="true">View All Menu</span>
+              <span class="text text-2" aria-hidden="true">Ver todo el menú</span>
             </a>
 
             <img
@@ -951,6 +951,7 @@
 
                 <button type="submit" class="btn btn-secondary">
                   <span class="text text-1">Reservar una mesa</span>
+
 
                   <span class="text text-2" aria-hidden="true"
                     >Reservar una mesa</span
@@ -1123,8 +1124,12 @@
             <ul class="grid-list">
             	
             <%
-            	List<Publicacion> publicaciones = DaoPublicacion.listarPublicacionesPublicadas();
-            	for (Publicacion pub: publicaciones) {
+            	Connection con = MySqlConexion.getConexion();
+            	String sql = "call ListarPublicacionesPublicadas()";
+            	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            	PreparedStatement ps = con.prepareStatement(sql);
+            	ResultSet rs = ps.executeQuery();
+            	while (rs.next()) {
             %>
               <li>
                 <div class="event-card has-before hover:shine">
@@ -1132,25 +1137,25 @@
                     class="card-banner img-holder"
                     style="--width: 350; --height: 450">
                     <img
-                      src="./assets/images/event-1.jpg"
+                      src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(rs.getBytes("archivo")) %>"
                       width="350"
                       height="450"
                       loading="lazy"
                       alt="Flavour so good you’ll try to eat with your eyes."
                       class="img-cover" />
 
-                    <time class="publish-date label-2" datetime="2022-09-15"
-                      ><%= pub.getFechapublicacion() %></time
+                    <time class="publish-date label-2"
+                      ><%= dateFormat.format(rs.getDate("fecha_publicacion")) %></time
                     >
                   </div>
 
                   <div class="card-content">
                     <p class="card-subtitle label-2 text-center">
-                      Comida, Sabor
+                    <%= rs.getString("titulo") %>
                     </p>
 
                     <h3 class="card-title title-2 text-center">
-                    <%= pub.getTitulo() %>
+                    <%= rs.getString("descripcion") %>
                     </h3>
                   </div>
                 </div>
@@ -1194,7 +1199,7 @@
             </address>
 
             <a href="mailto:booking@grilli.com" class="body-4 contact-link"
-              >perugourmet@gmail.com</a
+              >perucriollo@gmail.com</a
             >
 
             <a href="tel:+88123123456" class="body-4 contact-link"
