@@ -11,6 +11,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
     	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
+    	<link rel="stylesheet" href="./css/restaurante.css" />
 		<title>Perú Criollo</title>
 		<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
     	<link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
