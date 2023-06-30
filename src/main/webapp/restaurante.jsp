@@ -16,7 +16,6 @@
 	<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
     <link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
     <link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
-    <title>Insert title here</title>
 </head>
 <body>
 	<!-- 
@@ -117,7 +116,7 @@
             </li>
             
             <li class="navbar-item">
-              <a href="#about" class="navbar-link hover-underline">
+              <a href="Eventos.jsp" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Eventos</span>
