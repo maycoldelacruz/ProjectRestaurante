@@ -13,9 +13,17 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/restaurante.css" />
 	<title>Perú Criollo</title>
-    <title>Insert title here</title>
+	<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
+    <link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
+    <link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
+
 </head>
 <body>
+	<!-- 
+    - #PRELOADER
+  	-->
+    
+    
     <!-- 
     - #TOP BAR
   	-->
@@ -42,7 +50,7 @@
         </div>
 
         <a href="tel:+11234567890" class="topbar-item link">
-          <div class="icon">
+          <div class="icon">	
             <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
           </div>
 
@@ -106,23 +114,24 @@
             </li>
 
             <li class="navbar-item">
+
               <a href="#about" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Nosotros</span>
               </a>
             </li>
-
+            
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="Eventos.jsp" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
-                <span class="span">Nuestros Chefs</span>
+                <span class="span">Eventos</span>
               </a>
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="#reservation" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Contacto</span>
@@ -546,7 +555,7 @@
         - #RESERVATION
       -->
 
-        <section class="reservation">
+        <section class="reservation" id="reservation">
           <div class="container">
             <div class="form reservation-form bg-black-10">
               <form action="" class="form-left">
@@ -689,6 +698,7 @@
           </div>
         </section>
         
+<<<<<<< HEAD
         <!-- 
         - #EVENT
       -->
@@ -753,6 +763,9 @@
             </a>
           </div>
         </section>
+=======
+        
+>>>>>>> 75577b0e8d8f9b3a497adcd931bac74080920665
         
 
     	</article>
@@ -770,7 +783,7 @@
           <div class="footer-brand has-before has-after">
             <a href="#" class="logo">
               <img
-                src="./images/logo.svg"
+            	src="./images/icon/logo.webp"
                 width="160"
                 height="50"
                 loading="lazy"
@@ -816,9 +829,9 @@
               </div>
 
               <button type="submit" class="btn btn-secondary">
-                <span class="text text-1">Subscribe</span>
+                <span class="text text-1">Suscribirse</span>
 
-                <span class="text text-2" aria-hidden="true">Subscribe</span>
+                <span class="text text-2" aria-hidden="true">Suscribirse</span>
               </button>
             </form>
           </div>
