@@ -13,20 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/restaurante.css" />
 	<title>Perú Criollo</title>
-	<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
-    <link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
-    <link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
     <title>Insert title here</title>
 </head>
 <body>
-	<!-- 
-    - #PRELOADER
-  	-->
-    <div class="preload" data-preaload>
-      <div class="circle"></div>
-      <p class="text">Perú<br />Criollo</p>
-    </div>
-    
     <!-- 
     - #TOP BAR
   	-->
