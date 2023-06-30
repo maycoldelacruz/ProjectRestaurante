@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8" />
+		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="./favicon.svg" type="images/svg+xml" />
@@ -12,7 +12,7 @@
     	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
     	<link rel="stylesheet" href="./css/restaurante.css" />
-		<title>Perú Criollo</title>
+		<title>Per� Criollo</title>
 		<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
     	<link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
     	<link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
@@ -21,10 +21,7 @@
     <!-- 
     - #PRELOADER
   -->
-    <div class="preload" data-preaload>
-      <div class="circle"></div>
-      <p class="text">Perú<br />Criollo</p>
-    </div>
+   
 
     <!-- 
     - #TOP BAR
