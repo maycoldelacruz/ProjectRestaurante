@@ -13,9 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/restaurante.css" />
 	<title>Perú Criollo</title>
+	<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
+    <link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
+    <link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
     <title>Insert title here</title>
 </head>
 <body>
+	<!-- 
+    - #PRELOADER
+  	-->
+    <div class="preload" data-preaload>
+      <div class="circle"></div>
+      <p class="text">Perú<br />Criollo</p>
+    </div>
+    
     <!-- 
     - #TOP BAR
   	-->
@@ -98,31 +109,23 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#menu" class="navbar-link hover-underline">
-                <div class="separator"></div>
-
-                <span class="span">Menúes</span>
-              </a>
-            </li>
-
-            <li class="navbar-item">
               <a href="#about" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Nosotros</span>
               </a>
             </li>
-
+            
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="#about" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
-                <span class="span">Nuestros Chefs</span>
+                <span class="span">Eventos</span>
               </a>
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="#reservation" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
                 <span class="span">Contacto</span>
@@ -546,7 +549,7 @@
         - #RESERVATION
       -->
 
-        <section class="reservation">
+        <section class="reservation" id="reservation">
           <div class="container">
             <div class="form reservation-form bg-black-10">
               <form action="" class="form-left">
@@ -689,71 +692,7 @@
           </div>
         </section>
         
-        <!-- 
-        - #EVENT
-      -->
-
-        <section class="section event bg-black-10" aria-label="event">
-          <div class="container">
-            <p class="section-subtitle label-2 text-center">
-              Publicaciones recientes
-            </p>
-
-            <h2 class="section-title headline-1 text-center">
-              Próximos Eventos
-            </h2>
-
-            <ul class="grid-list">
-            	
-            <%
-            	Connection con = MySqlConexion.getConexion();
-            	String sql = "call ListarPublicacionesPublicadas()";
-            	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            	PreparedStatement ps = con.prepareStatement(sql);
-            	ResultSet rs = ps.executeQuery();
-            	while (rs.next()) {
-            %>
-              <li>
-                <div class="event-card has-before hover:shine">
-                  <div
-                    class="card-banner img-holder"
-                    style="--width: 350; --height: 450">
-                    <img
-                      src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(rs.getBytes("archivo")) %>"
-                      width="350"
-                      height="450"
-                      loading="lazy"
-                      alt="Flavour so good youâll try to eat with your eyes."
-                      class="img-cover" />
-
-                    <time class="publish-date label-2"
-                      ><%= dateFormat.format(rs.getDate("fecha_publicacion")) %></time
-                    >
-                  </div>
-
-                  <div class="card-content">
-                    <p class="card-subtitle label-2 text-center">
-                    <%= rs.getString("titulo") %>
-                    </p>
-
-                    <h3 class="card-title title-2 text-center">
-                    <%= rs.getString("descripcion") %>
-                    </h3>
-                  </div>
-                </div>
-              </li>
-             <% } %>
-            </ul>
-
-            <a href="#" class="btn btn-primary">
-              <span class="text text-1">Ver nuestro blog</span>
-
-              <span class="text text-2" aria-hidden="true"
-                >Ver nuestro blog</span
-              >
-            </a>
-          </div>
-        </section>
+        
         
 
     	</article>
@@ -771,7 +710,7 @@
           <div class="footer-brand has-before has-after">
             <a href="#" class="logo">
               <img
-                src="./images/logo.svg"
+            	src="./images/icon/logo.webp"
                 width="160"
                 height="50"
                 loading="lazy"
@@ -779,7 +718,7 @@
             </a>
 
             <address class="body-4">
-              Avenida Paseo De La RepÃºblica, Miraflores, Lima
+              Avenida Paseo De La República, Miraflores, Lima
             </address>
 
             <a href="mailto:booking@grilli.com" class="body-4 contact-link"
@@ -817,9 +756,9 @@
               </div>
 
               <button type="submit" class="btn btn-secondary">
-                <span class="text text-1">Subscribe</span>
+                <span class="text text-1">Suscribirse</span>
 
-                <span class="text text-2" aria-hidden="true">Subscribe</span>
+                <span class="text text-2" aria-hidden="true">Suscribirse</span>
               </button>
             </form>
           </div>
