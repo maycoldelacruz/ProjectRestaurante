@@ -21,7 +21,10 @@
     <!-- 
     - #PRELOADER
   -->
-   
+    <div class="preload" data-preaload>
+      <div class="circle"></div>
+      <p class="text">Perú<br />Criollo</p>
+    </div>
 
     <!-- 
     - #TOP BAR
