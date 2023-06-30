@@ -7,18 +7,14 @@
 <html lang="en">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Agregar Proveedor</title>
+    <title>Agregar Categoría</title>
     <link rel="stylesheet" href="css/prov.css" >
-    <script src="js/lista.js"></script>
     <!--SCRIPT-->
     <jsp:include page="Main_Vendor.jsp" />
     <!--END SCRIPT-->
-    <%
-		List<Insumos> lisInsumos=(List<Insumos>) request.getAttribute("LISTAINSUMOS");
-	%>
 </head>
 
-<body class="animsition" onload="cargar()">
+<body class="animsition">
      
      <!-- DIV PRINCIPAL--> 
      <div class="page-wrapper">
@@ -38,37 +34,26 @@
              <div class="container justify-content-center">
              	<div class="row justify-content-center">
              		<div class="col-md-9">
-             		<h2>Agregar proveedor</h2>
+             		<h2>Agregar categoría</h2>
              		<br>
-             			<form name="formPv" method="get" action="ProveedorServlet">
+             			<form name="formCt" method="get" action="CategoriasServlet">
 	             			<input type="hidden" name="instruccion" value="insertarBBDD">
-	             				
-		             								
-									<label  for "nombre">Nombre</label>
-									<input  type="text" name="nombre" id="nombre">									
-									
-									
-									<label for "numerotel">Telefono</label>
-									<input type="text" name="numerotel" id="numerotel">
-									
-									<label for"estado" style="display:block; margin-top:20px;">Estado</label>
-									<select name="estado" id="estado" style="width: 350px; 
-																			height:25px; 
-																			display: block;
-																			margin-bottom: 20px;">
-										<option>ACTIVO</option>
-										<option>INACTIVO</option>
-									</select>
-									
-									<div class="botones">
-										<input style="margin-right: 20px;" class="btn btn-primary" type="submit" value="Enviar"/>
-										<input class="btn btn-primary" type="reset" value="Limpiar"/>
-										<input class="btn btn-secondary" type="button" value="Cancelar" onclick="window.location.href='ProveedorServlet?instruccion=listar'"/>
-									</div>
-						</form>
+	             			
+	             			<label for "cod_tipo">Código</label>
+							<input type="text" name="cod_tipo" id="cod_tipo">
+								
+								
+							<label for "nom_tipo" >Nombre</label>
+							<input  type="text" name="nom_tipo" id="nom_tipo">
 							
+							<div class="botones" style="margin-top:20px;">
+								<input style="margin-right:20px;" class="btn btn-primary" type="submit" value="Enviar"/>
+								<input style="margin-right:20px;" class="btn btn-primary" type="reset" value="Limpiar"/>
+								<input class="btn btn-secondary" type="button" value="Volver a insumo" onclick="window.location.href='InsertarInsumo.jsp'"/>
+							</div>
+							
+						</form>
              		</div>
-             		
              	</div>
              </div>
            

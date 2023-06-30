@@ -110,12 +110,11 @@ public class ProveedorServlet extends HttpServlet {
 	}
 
 	private void agregarProveedor(HttpServletRequest request, HttpServletResponse response) {
-		int CodProveedor = Integer.parseInt(request.getParameter("cod_prov"));
 		String Nombre = request.getParameter("nombre");
 		String telefono = request.getParameter("numerotel");
 		String Estado = request.getParameter("estado");
 		
-		Proveedores NuevoProveedor = new Proveedores(CodProveedor, Nombre, telefono, Estado);
+		Proveedores NuevoProveedor = new Proveedores(Nombre, telefono, Estado);
 		
 		daoprov.agregarNuevoProveedor(NuevoProveedor);
 		

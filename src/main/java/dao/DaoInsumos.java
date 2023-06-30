@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,15 +47,14 @@ public class DaoInsumos {
 		
 		try {
 			miConexion = MySqlConexion.getConexion();
-			String SQL = "INSERT INTO INSUMOS(COD_INS, NOMBRE, STKMIN, STK_ACT, COD_TIPO, PRECIOXKILO) VALUES(?,?,?,?,?,?)";
+			String SQL = "INSERT INTO INSUMOS(NOMBRE, STKMIN, STK_ACT, COD_TIPO, PRECIOXKILO) VALUES(?,?,?,?,?)";
 			miStatement = miConexion.prepareStatement(SQL);
 			
-			miStatement.setInt(1, nuevoInsumo.getCod_ins());
-			miStatement.setString(2, nuevoInsumo.getNombre());
-			miStatement.setInt(3, nuevoInsumo.getStk_min());
-			miStatement.setInt(4, nuevoInsumo.getStk_act());
-			miStatement.setInt(5, nuevoInsumo.getCod_tipo());
-			miStatement.setDouble(6, nuevoInsumo.getPrecioXkilo());
+			miStatement.setString(1, nuevoInsumo.getNombre());
+			miStatement.setInt(2, nuevoInsumo.getStk_min());
+			miStatement.setInt(3, nuevoInsumo.getStk_act());
+			miStatement.setInt(4, nuevoInsumo.getCod_tipo());
+			miStatement.setDouble(5, nuevoInsumo.getPrecioXkilo());
 			
 			miStatement.execute();
 		}catch(Exception e){
@@ -118,5 +118,19 @@ public class DaoInsumos {
 
 	 	
 	 	miStatement.execute();
+	}
+
+	public void eliminarInsumo(int codIns) throws SQLException {
+		Connection miConexion =  null;
+		PreparedStatement miStatement = null;
+		
+		miConexion = MySqlConexion.getConexion();
+		
+		String sql = "DELETE FROM INSUMOS WHERE COD_INS=?";
+		
+		miStatement = miConexion.prepareStatement(sql);
+		miStatement.setInt(1, codIns);
+		
+		miStatement.execute();
 	}
 }

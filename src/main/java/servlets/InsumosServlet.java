@@ -58,10 +58,26 @@ public class InsumosServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		case "eliminar":
+			try {
+				eliminarInsumo(request, response);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			break;
 		default :
 			obtenerInsumos(request, response);
 		}
 	}
+	private void eliminarInsumo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		int codIns = Integer.parseInt(request.getParameter("IdInsumo"));
+		
+		daoIns.eliminarInsumo(codIns);
+		
+		obtenerInsumos(request, response);
+	}
+
 	private void actualizarInsumo(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		int CodInsumo = Integer.parseInt(request.getParameter("cod_ins"));
 		String Nombre = request.getParameter("nombre");
@@ -89,14 +105,13 @@ public class InsumosServlet extends HttpServlet {
 		
 	}
 	private void agregarInsumos(HttpServletRequest request, HttpServletResponse response) {
-		int codigo = Integer.parseInt(request.getParameter("cod_ins"));
 		String Nombre = request.getParameter("nombre");
 		int stk_min = Integer.parseInt(request.getParameter("stk_min"));
 		int tipo = Integer.parseInt(request.getParameter("cod_tipo"));
 		double precio = Double.parseDouble(request.getParameter("preciok"));
 		int actual = Integer.parseInt(request.getParameter("stk_act"));
 		
-		Insumos NuevoInsumo =  new Insumos(codigo, stk_min, actual, Nombre, tipo, precio);
+		Insumos NuevoInsumo =  new Insumos(stk_min, actual, Nombre, precio, tipo);
 		
 		daoIns.agregarNuevoInsumo(NuevoInsumo);
 		

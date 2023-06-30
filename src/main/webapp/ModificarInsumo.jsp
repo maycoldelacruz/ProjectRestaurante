@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@ page import="java.util.* , modelo.*" %>
+<%@ page import="java.util.* , modelo.*, java.sql.*" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +56,26 @@
 							<input type="text" name="preciok" id="preciok" value="${InsumoActualizar.precioXkilo}">
 							
 							<label for "cod_tipo" >Código tipo</label>
-							<input  type="text" name="cod_tipo" id="cod_tipo" value="${InsumoActualizar.cod_tipo}">
+							<select name="cod_tipo" id="cod_tipo" 
+									style="width: 350px; 
+										height:25px; 
+										display: block;
+										margin-bottom: 20px;">
+									<% 
+										Class.forName("com.mysql.cj.jdbc.Driver");
+									 	String url = "jdbc:mysql://localhost/RESTAURANTE?useTimezOne=true&serverTimezone=UTC";
+									 	String usr = "root";
+									 	String psw = "baobei"; 
+										String sql_tipos = "CALL LISTAR_CATEGORIAS";
+										Connection con = DriverManager.getConnection(url,usr,psw); 
+										PreparedStatement psc = con.prepareStatement(sql_tipos);
+										ResultSet rsc = psc.executeQuery();
+										while(rsc.next()){
+									%>
+									<option value="<%=rsc.getInt(1)%>"><%=rsc.getString(2) %> </option>
+									<% } %>
+							
+							</select>
 							<input class= "btn" type="button" value="Nueva categoría" style="border: 1px solid black; margin-right:20px" 
 								onclick="window.location.href='InsertarCategoria_Ins.jsp'"/>
 							
