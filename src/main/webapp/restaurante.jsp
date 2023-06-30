@@ -2,33 +2,34 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*, java.sql.*, modelo.*, util.*, java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="./favicon.svg" type="images/svg+xml" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
-    	<link rel="stylesheet" href="./css/restaurante.css" />
-		<title>Perú Criollo</title>
-		<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
-    	<link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
-    	<link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
-	</head>
+<html lang="es">
+<head>
+	<meta charset="ISO-8859-1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="./favicon.svg" type="images/svg+xml" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/restaurante.css" />
+	<title>Perú Criollo</title>
+	<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
+    <link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
+    <link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
+    <title>Insert title here</title>
+</head>
 <body>
-    <!-- 
+	<!-- 
     - #PRELOADER
-  -->
+  	-->
     <div class="preload" data-preaload>
       <div class="circle"></div>
       <p class="text">Perú<br />Criollo</p>
     </div>
-
+    
     <!-- 
     - #TOP BAR
-  -->
+  	-->
     <div class="topbar">
       <div class="container">
         <address class="topbar-item">
@@ -70,7 +71,7 @@
         </a>
       </div>
     </div>
-
+    
     <!-- 
     - #HEADER
   -->
@@ -79,7 +80,7 @@
       <div class="container">
         <a href="#" class="logo">
           <img
-            src="./images/icon/logo-white.png"
+            src="./images/icon/logo.webp"
             width="160"
             height="50"
             alt="Grilli - Home" />
@@ -92,7 +93,7 @@
 
           <a href="#" class="logo">
             <img
-              src="./assets/images/logo.svg"
+              src="./images/logo.svg"
               width="160"
               height="50"
               alt="Grilli - Home" />
@@ -111,7 +112,7 @@
               <a href="#menu" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
-                <span class="span">Menús</span>
+                <span class="span">Menúes</span>
               </a>
             </li>
 
@@ -141,10 +142,10 @@
           </ul>
 
           <div class="text-center">
-            <p class="headline-1 navbar-title">Visítanos</p>
+            <p class="headline-1 navbar-title">VisÃ­tanos</p>
 
             <address class="body-4">
-              Avenida Paseo De La República<br />
+              Avenida Paseo De La RepÃºblica<br />
               Miraflores, Lima
             </address>
 
@@ -181,10 +182,10 @@
         <div class="overlay" data-nav-toggler data-overlay></div>
       </div>
     </header>
-
+    
     <main>
-      <article>
-        <!-- 
+    	<article>
+    		<!-- 
         - #HERO
       -->
 
@@ -193,7 +194,7 @@
             <li class="slider-item active" data-hero-slider-item>
               <div class="slider-bg">
                 <img
-                  src="./assets/images/hero-slider-1.jpg"
+                  src="./images/hero-slider-1.jpg"
                   width="1880"
                   height="950"
                   alt=""
@@ -225,7 +226,7 @@
             <li class="slider-item" data-hero-slider-item>
               <div class="slider-bg">
                 <img
-                  src="./assets/images/hero-slider-2.jpg"
+                  src="./images/hero-slider-2.jpg"
                   width="1880"
                   height="950"
                   alt=""
@@ -257,7 +258,7 @@
             <li class="slider-item" data-hero-slider-item>
               <div class="slider-bg">
                 <img
-                  src="./assets/images/hero-slider-3.jpg"
+                  src="./images/hero-slider-3.jpg"
                   width="1880"
                   height="950"
                   alt=""
@@ -303,7 +304,7 @@
 
           <a href="#" class="hero-btn has-after">
             <img
-              src="./assets/images/hero-icon.png"
+              src="./images/hero-icon.png"
               width="48"
               height="48"
               alt="booking icon" />
@@ -311,7 +312,7 @@
             <span class="label-2 text-center span">Reservar una mesa</span>
           </a>
         </section>
-
+        
         <!-- 
         - #SERVICE
       -->
@@ -338,7 +339,7 @@
                       class="card-banner img-holder"
                       style="--width: 285; --height: 336">
                       <img
-                        src="./assets/images/service-1.jpg"
+                        src="./images/service-1.jpg"
                         width="285"
                         height="336"
                         loading="lazy"
@@ -366,7 +367,7 @@
                       class="card-banner img-holder"
                       style="--width: 285; --height: 336">
                       <img
-                        src="./assets/images/service-2.jpg"
+                        src="./images/service-2.jpg"
                         width="285"
                         height="336"
                         loading="lazy"
@@ -394,7 +395,7 @@
                       class="card-banner img-holder"
                       style="--width: 285; --height: 336">
                       <img
-                        src="./assets/images/service-3.jpg"
+                        src="./images/service-3.jpg"
                         width="285"
                         height="336"
                         loading="lazy"
@@ -417,14 +418,14 @@
             </ul>
 
             <img
-              src="./assets/images/shape-1.png"
+              src="./images/shape-1.png"
               width="246"
               height="412"
               loading="lazy"
               alt="shape"
               class="shape shape-1 move-anim" />
             <img
-              src="./assets/images/shape-2.png"
+              src="./images/shape-2.png"
               width="343"
               height="345"
               loading="lazy"
@@ -432,7 +433,7 @@
               class="shape shape-2 move-anim" />
           </div>
         </section>
-
+        
         <!-- 
         - #ABOUT
       -->
@@ -476,7 +477,7 @@
 
             <figure class="about-banner">
               <img
-                src="./assets/images/about-banner.jpg"
+                src="./images/about-banner.jpg"
                 width="570"
                 height="570"
                 loading="lazy"
@@ -490,7 +491,7 @@
                 data-parallax-item
                 data-parallax-speed="1.75">
                 <img
-                  src="./assets/images/about-abs-image.jpg"
+                  src="./images/about-abs-image.jpg"
                   width="285"
                   height="285"
                   loading="lazy"
@@ -500,7 +501,7 @@
 
               <div class="abs-img abs-img-2 has-before">
                 <img
-                  src="./assets/images/badge-2.png"
+                  src="./images/badge-2.png"
                   width="133"
                   height="134"
                   loading="lazy"
@@ -509,7 +510,7 @@
             </figure>
 
             <img
-              src="./assets/images/shape-3.png"
+              src="./images/shape-3.png"
               width="197"
               height="194"
               loading="lazy"
@@ -517,318 +518,16 @@
               class="shape" />
           </div>
         </section>
-
-        <!-- 
-        - #SPECIAL DISH
-      -->
-
-        <section class="special-dish text-center" aria-labelledby="dish-label">
-          <div class="special-dish-banner">
-            <img
-              src="./assets/images/special-dish-banner.jpg"
-              width="940"
-              height="900"
-              loading="lazy"
-              alt="special dish"
-              class="img-cover" />
-          </div>
-
-          <div class="special-dish-content bg-black-10">
-            <div class="container">
-              <img
-                src="./assets/images/badge-1.png"
-                width="28"
-                height="41"
-                loading="lazy"
-                alt="badge"
-                class="abs-img" />
-
-              <p class="section-subtitle label-2">Special Dish</p>
-
-              <h2 class="headline-1 section-title">Lobster Tortellini</h2>
-
-              <p class="section-text">
-                Lorem Ipsum is simply dummy text of the printingand typesetting
-                industry lorem Ipsum has been the industrys standard dummy text
-                ever since the when an unknown printer took a galley of type.
-              </p>
-
-              <div class="wrapper">
-                <del class="del body-3">$40.00</del>
-
-                <span class="span body-1">$20.00</span>
-              </div>
-
-              <a href="#" class="btn btn-primary">
-                <span class="text text-1">Ver todo el menú</span>
-
-                <span class="text text-2" aria-hidden="true"
-                  >Ver todo el menú</span
-                >
-              </a>
-            </div>
-          </div>
-
-          <img
-            src="./assets/images/shape-4.png"
-            width="179"
-            height="359"
-            loading="lazy"
-            alt=""
-            class="shape shape-1" />
-
-          <img
-            src="./assets/images/shape-9.png"
-            width="351"
-            height="462"
-            loading="lazy"
-            alt=""
-            class="shape shape-2" />
-        </section>
-
-        <!-- 
-        - #MENU
-      -->
-
-        <section class="section menu" aria-label="menu-label" id="menu">
-          <div class="container">
-            <p class="section-subtitle text-center label-2">
-              Especialidad de la casa
-            </p>
-
-            <h2 class="headline-1 section-title text-center">Delicioso menú</h2>
-
-            <ul class="grid-list">
-              <li>
-                <div class="menu-card hover:card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 100; --height: 100">
-                    <img
-                      src="./assets/images/menu-1.png"
-                      width="100"
-                      height="100"
-                      loading="lazy"
-                      alt="Greek Salad"
-                      class="img-cover" />
-                  </figure>
-
-                  <div>
-                    <div class="title-wrapper">
-                      <h3 class="title-3">
-                        <a href="#" class="card-title">Greek Salad</a>
-                      </h3>
-
-                      <span class="badge label-1">Seasonal</span>
-
-                      <span class="span title-2">$25.50</span>
-                    </div>
-
-                    <p class="card-text label-1">
-                      Tomatoes, green bell pepper, sliced cucumber onion,
-                      olives, and feta cheese.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="menu-card hover:card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 100; --height: 100">
-                    <img
-                      src="./assets/images/menu-2.png"
-                      width="100"
-                      height="100"
-                      loading="lazy"
-                      alt="Lasagne"
-                      class="img-cover" />
-                  </figure>
-
-                  <div>
-                    <div class="title-wrapper">
-                      <h3 class="title-3">
-                        <a href="#" class="card-title">Lasagne</a>
-                      </h3>
-
-                      <span class="span title-2">$40.00</span>
-                    </div>
-
-                    <p class="card-text label-1">
-                      Vegetables, cheeses, ground meats, tomato sauce,
-                      seasonings and spices
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="menu-card hover:card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 100; --height: 100">
-                    <img
-                      src="./assets/images/menu-3.png"
-                      width="100"
-                      height="100"
-                      loading="lazy"
-                      alt="Butternut Pumpkin"
-                      class="img-cover" />
-                  </figure>
-
-                  <div>
-                    <div class="title-wrapper">
-                      <h3 class="title-3">
-                        <a href="#" class="card-title">Butternut Pumpkin</a>
-                      </h3>
-
-                      <span class="span title-2">$10.00</span>
-                    </div>
-
-                    <p class="card-text label-1">
-                      Typesetting industry lorem Lorem Ipsum is simply dummy
-                      text of the priand.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="menu-card hover:card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 100; --height: 100">
-                    <img
-                      src="./assets/images/menu-4.png"
-                      width="100"
-                      height="100"
-                      loading="lazy"
-                      alt="Tokusen Wagyu"
-                      class="img-cover" />
-                  </figure>
-
-                  <div>
-                    <div class="title-wrapper">
-                      <h3 class="title-3">
-                        <a href="#" class="card-title">Tokusen Wagyu</a>
-                      </h3>
-
-                      <span class="badge label-1">Nuevo</span>
-
-                      <span class="span title-2">$39.00</span>
-                    </div>
-
-                    <p class="card-text label-1">
-                      Vegetables, cheeses, ground meats, tomato sauce,
-                      seasonings and spices.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="menu-card hover:card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 100; --height: 100">
-                    <img
-                      src="./assets/images/menu-5.png"
-                      width="100"
-                      height="100"
-                      loading="lazy"
-                      alt="Olivas Rellenas"
-                      class="img-cover" />
-                  </figure>
-
-                  <div>
-                    <div class="title-wrapper">
-                      <h3 class="title-3">
-                        <a href="#" class="card-title">Olivas Rellenas</a>
-                      </h3>
-
-                      <span class="span title-2">$25.00</span>
-                    </div>
-
-                    <p class="card-text label-1">
-                      Avocados with crab meat, red onion, crab salad stuffed red
-                      bell pepper and green bell pepper.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="menu-card hover:card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 100; --height: 100">
-                    <img
-                      src="./assets/images/menu-6.png"
-                      width="100"
-                      height="100"
-                      loading="lazy"
-                      alt="Opu Fish"
-                      class="img-cover" />
-                  </figure>
-
-                  <div>
-                    <div class="title-wrapper">
-                      <h3 class="title-3">
-                        <a href="#" class="card-title">Opu Fish</a>
-                      </h3>
-
-                      <span class="span title-2">$49.00</span>
-                    </div>
-
-                    <p class="card-text label-1">
-                      Vegetables, cheeses, ground meats, tomato sauce,
-                      seasonings and spices
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-            <p class="menu-text text-center">
-              Todos los días desde las <span class="span">7:00 pm</span> hasta las
-              <span class="span">9:00 pm</span>
-            </p>
-
-            <a href="#" class="btn btn-primary">
-              <span class="text text-1">Ver todo el menú</span>
-
-              <span class="text text-2" aria-hidden="true">Ver todo el menú</span>
-            </a>
-
-            <img
-              src="./assets/images/shape-5.png"
-              width="921"
-              height="1036"
-              loading="lazy"
-              alt="shape"
-              class="shape shape-2 move-anim" />
-            <img
-              src="./assets/images/shape-6.png"
-              width="343"
-              height="345"
-              loading="lazy"
-              alt="shape"
-              class="shape shape-3 move-anim" />
-          </div>
-        </section>
-
+        
         <!-- 
         - #TESTIMONIALS
       -->
 
         <section
           class="section testi text-center has-bg-image"
-          style="background-image: url('./assets/images/testimonial-bg.jpg')"
+          style="background-image: url('./images/testimonial-bg.jpg')"
           aria-label="testimonials">
           <div class="container">
-            <div class="quote">”</div>
-
             <p class="headline-2 testi-text">
               Quería darte las gracias por invitarme a esa increíble cena la
               otra noche. La comida fue extraordinaria.
@@ -842,7 +541,7 @@
 
             <div class="profile">
               <img
-                src="./assets/images/testi-avatar.jpg"
+                src="./images/testi-avatar.jpg"
                 width="100"
                 height="100"
                 loading="lazy"
@@ -962,7 +661,7 @@
               <div
                 class="form-right text-center"
                 style="
-                  background-image: url('./assets/images/form-pattern.png');
+                  background-image: url('./images/form-pattern.png');
                 ">
                 <h2 class="headline-1 text-center">Contáctanos</h2>
 
@@ -1000,113 +699,7 @@
             </div>
           </div>
         </section>
-
-        <!-- 
-        - #FEATURES
-      -->
-
-        <section class="section features text-center" aria-label="features">
-          <div class="container">
-            <p class="section-subtitle label-2">Por qué elegirnos</p>
-
-            <h2 class="headline-1 section-title">Nuestras fortalezas</h2>
-
-            <ul class="grid-list">
-              <li class="feature-item">
-                <div class="feature-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-1.png"
-                      width="100"
-                      height="80"
-                      loading="lazy"
-                      alt="icon" />
-                  </div>
-
-                  <h3 class="title-2 card-title">Comida higiénica</h3>
-
-                  <p class="label-1 card-text">
-                    Lorem Ipsum is simply dummy printing and typesetting.
-                  </p>
-                </div>
-              </li>
-
-              <li class="feature-item">
-                <div class="feature-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-2.png"
-                      width="100"
-                      height="80"
-                      loading="lazy"
-                      alt="icon" />
-                  </div>
-
-                  <h3 class="title-2 card-title">Ambiente fresco</h3>
-
-                  <p class="label-1 card-text">
-                    Lorem Ipsum is simply dummy printing and typesetting.
-                  </p>
-                </div>
-              </li>
-
-              <li class="feature-item">
-                <div class="feature-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-3.png"
-                      width="100"
-                      height="80"
-                      loading="lazy"
-                      alt="icon" />
-                  </div>
-
-                  <h3 class="title-2 card-title">Chefs talentosos</h3>
-
-                  <p class="label-1 card-text">
-                    Lorem Ipsum is simply dummy printing and typesetting.
-                  </p>
-                </div>
-              </li>
-
-              <li class="feature-item">
-                <div class="feature-card">
-                  <div class="card-icon">
-                    <img
-                      src="./assets/images/features-icon-4.png"
-                      width="100"
-                      height="80"
-                      loading="lazy"
-                      alt="icon" />
-                  </div>
-
-                  <h3 class="title-2 card-title">Eventos y Fiestas</h3>
-
-                  <p class="label-1 card-text">
-                    Lorem Ipsum is simply dummy printing and typesetting.
-                  </p>
-                </div>
-              </li>
-            </ul>
-
-            <img
-              src="./assets/images/shape-7.png"
-              width="208"
-              height="178"
-              loading="lazy"
-              alt="shape"
-              class="shape shape-1" />
-
-            <img
-              src="./assets/images/shape-8.png"
-              width="120"
-              height="115"
-              loading="lazy"
-              alt="shape"
-              class="shape shape-2" />
-          </div>
-        </section>
-
+        
         <!-- 
         - #EVENT
       -->
@@ -1141,7 +734,7 @@
                       width="350"
                       height="450"
                       loading="lazy"
-                      alt="Flavour so good you’ll try to eat with your eyes."
+                      alt="Flavour so good youâll try to eat with your eyes."
                       class="img-cover" />
 
                     <time class="publish-date label-2"
@@ -1172,22 +765,24 @@
             </a>
           </div>
         </section>
-      </article>
-    </main>
+        
 
+    	</article>
+    </main>
+    
     <!-- 
     - #FOOTER
   -->
 
     <footer
       class="footer section has-bg-image text-center"
-      style="background-image: url('./assets/images/footer-bg.jpg')">
+      style="background-image: url('./images/footer-bg.jpg')">
       <div class="container">
         <div class="footer-top grid-list">
           <div class="footer-brand has-before has-after">
             <a href="#" class="logo">
               <img
-                src="./assets/images/logo.svg"
+                src="./images/logo.svg"
                 width="160"
                 height="50"
                 loading="lazy"
@@ -1195,7 +790,7 @@
             </a>
 
             <address class="body-4">
-              Avenida Paseo De La República, Miraflores, Lima
+              Avenida Paseo De La RepÃºblica, Miraflores, Lima
             </address>
 
             <a href="mailto:booking@grilli.com" class="body-4 contact-link"
@@ -1320,11 +915,11 @@
       data-back-top-btn>
       <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
     </a>
-
+    
     <!-- 
     - custom js link
   -->
-    <script src="./assets/js/script.js"></script>
+    <script src="./js/script.js"></script>
 
     <!-- 
     - ionicon link
