@@ -26,6 +26,12 @@ public class Proveedores {
 		this.cod_ins = cod_ins;
 	}
 
+	public Proveedores(String nombre, String numeroTel, String estado) {
+		this.nombre = nombre;
+		this.numeroTel = numeroTel;
+		this.estado = estado;
+	}
+
 
 	public String toString() {
 		return "Proveedores [cod_prov=" + cod_prov + ", cod_ins=" + cod_ins + ", nombre= " + nombre 

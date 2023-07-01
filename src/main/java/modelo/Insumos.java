@@ -19,6 +19,21 @@ public class Insumos {
 		this.nombre = nombre;
 	}
 
+	public Insumos(int cod_ins, int stk_min, int stk_act, String nombre, double precioXkilo) {
+		this.cod_ins = cod_ins;
+		this.stk_min = stk_min;
+		this.stk_act = stk_act;
+		this.nombre = nombre;
+		this.precioXkilo = precioXkilo;
+	}
+
+	public Insumos(int stk_min, int stk_act, String nombre, double precioXkilo, int cod_tipo) {
+		this.stk_min = stk_min;
+		this.stk_act = stk_act;
+		this.cod_tipo = cod_tipo;
+		this.nombre = nombre;
+		this.precioXkilo = precioXkilo;
+	}
 
 	public String toString() {
 		return "Insumos [cod_ins=" +cod_ins + ",stk_min=" + stk_min + ",stk_act=" + stk_act + 

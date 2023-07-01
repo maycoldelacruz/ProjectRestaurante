@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <a href="GenerarPedido.jsp"><h2 class="text"><span >Generar nuevo pedido</span></h2></a>
+                                    <a href="GenerarPedidoServlet"><h2 class="text"><span >Generar nuevo pedido</span></h2></a>
                                     
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>
@@ -58,6 +58,16 @@
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
                                     <a href="InsumosServlet"><h2 class="text"><span >Insumos</span></h2></a>
+                                    
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                             <div class="col-md-6 col-lg-3">
+                                <div class="statistic__item">
+                                    <a href="CategoriasServlet"><h2 class="text"><span >Categoría</span></h2></a>
                                     
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>

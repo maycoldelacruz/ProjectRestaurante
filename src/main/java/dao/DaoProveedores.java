@@ -83,14 +83,13 @@ public class DaoProveedores {
 		
 		try {
 			miConexion = MySqlConexion.getConexion();
-			String SQL = "INSERT INTO PROVEEDOR(COD_PROV, NOMBRE, NUMEROTEL, ESTADO) VALUES(?,?,?,?)";
+			String SQL = "INSERT INTO PROVEEDOR(NOMBRE, NUMEROTEL, ESTADO) VALUES(?,?,?)";
 			
 			miStatement = miConexion.prepareStatement(SQL);
 			
-			miStatement.setInt(1, nuevoProveedor.getCod_prov());
-			miStatement.setString(2, nuevoProveedor.getNombre());
-			miStatement.setString(3, nuevoProveedor.getNumeroTel());
-			miStatement.setString(4, nuevoProveedor.getEstado());
+			miStatement.setString(1, nuevoProveedor.getNombre());
+			miStatement.setString(2, nuevoProveedor.getNumeroTel());
+			miStatement.setString(3, nuevoProveedor.getEstado());
 			
 			miStatement.execute();
 		}catch(Exception e){

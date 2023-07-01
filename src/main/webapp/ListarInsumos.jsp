@@ -33,39 +33,51 @@
              <!-- CONTENIDO-->
             <div class="container justify-content-center">
              	<div class="row justify-content-center">
-             		<div class="col-md-10">
-            
-             		<h2>Listado de Insumos</h2>
-             		<br>
-             			<table>
-							<tr>							
-								<td style="font-weight:bold;" class="col-md-1">CÓDIGO</td>
-								<td style="font-weight:bold;" class="col-md-1">NOMBRE</td>
-								<td style="font-weight:bold;" class="col-md-1">STOCK MINIMO</td>
-								<td style="font-weight:bold;" class="col-md-1">STOCK ACTUAL</td>
-								<td style="font-weight:bold;" class="col-md-1">PRECIO POR KILO</td>
-								<td style="font-weight:bold;" class="col-md-1">CÓDIGO TIPO</td>
-								<td style="font-weight:bold;" class="col-md-3"></td>
-							</tr>
-							
-						  	<% for (Insumos tempIns: lisInsumos) { %>
-							<tr>
-								<td class="col-md-1" ><%= tempIns.getCod_ins() %></td>
-								<td class="col-md-1 "><%= tempIns.getNombre() %></td>
-								<td class="col-md-1"><%= tempIns.getStk_min() %></td>
-								<td class="col-md-1"><%= tempIns.getStk_act() %></td>
-								<td class="col-md-1"><%= tempIns.getPrecioXkilo() %></td>
-								<td class="col-md-1"><%= tempIns.getCod_tipo() %></td>
-								<td class="col-md-1"><a href="InsumosServlet?instruccion=cargar&IdInsumo=<%= tempIns.getCod_ins() %>">Modificar</a>
-							</tr>
-							<% } %>
-						</table>
-						<div style="margin-top: 20px;" class="btn">
-							<input class="btn btn-primary" type="button" value="Agregar" onclick="window.location.href='InsertarInsumo.jsp'"/>
-							<!-- <input class="btn btn-primary" type="button" value="Modificar" onclick="window.location.href='ModificarInsumo.jsp'"/> -->
+             		<div class="col-md-12">
+            		<div class="col-md-10">
+	            		<div class="col-md-10">
+	            			<div class="col-md-5">
+	             				<h2>Listado de Insumos</h2>
+	             			</div>
+	             			<div class="col-md-3" style="margin-top: 20px;">
+		             			<input class="btn btn-primary" type="button" value="Agregar" onclick="window.location.href='InsertarInsumo.jsp'"/>
+							</div>
 						</div>
-             		</div>
-             	</div>
+             		<br>
+             		
+             		<table class="table">
+						<thead>
+							<tr>
+								<th class="col-1" scope="col">CÓDIGO</th>
+								<th class="col-2" scope="col">NOMBRE</th>
+								<th class="col-1" scope="col">STOCK MINIMO</th>
+								<th class="col-1" scope="col">STOCK ACTUAL</th>
+								<th class="col-1" scope="col">PRECIO POR KILO</th>
+								<th class="col-1" scope="col">CÓDIGO TIPO</th>
+								<th class="col-1"></th>
+								<th class="col-1"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (Insumos tempIns: lisInsumos) { %>
+							<tr>
+							    <th scope="row"><%= tempIns.getCod_ins() %></th>
+								<td><%= tempIns.getNombre() %></td>
+								<td><%= tempIns.getStk_min() %></td>
+								<td><%= tempIns.getStk_act() %></td>
+								<td><%= tempIns.getPrecioXkilo() %></td>
+								<td><%= tempIns.getCod_tipo() %></td>
+								<td><a class="btn btn-info" href="InsumosServlet?instruccion=cargar&IdInsumo=<%= tempIns.getCod_ins() %>">Actualizar</a></td>
+								<td><a class="btn btn-danger" href="InsumosServlet?instruccion=eliminar&IdInsumo=<%= tempIns.getCod_ins() %>">Eliminar</a></td>
+							</tr>
+							 <%} %>
+						</tbody>
+					</table>
+             			
+					
+				</div>
+            </div>
+            </div>
              </div>
              <!-- CONTENIDO-->
             

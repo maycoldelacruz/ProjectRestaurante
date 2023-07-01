@@ -54,8 +54,7 @@
 								 -->
 								 
 								<label for"estado" style="display:block; margin-top:20px;">Estado</label>
-								<input type="text" name="estado" id="estado" value="${ProveedorActualizar.estado}">
-								<select class="select"
+								<select name="estado" id="estado" class="select"  value="${ProveedorActualizar.estado}"
 										style="width: 350px; 
 										height:25px; 
 										display: block;
@@ -65,7 +64,6 @@
 									
 								<div class="botones">
 									<input style="margin-right: 20px;" class="btn btn-primary" type="submit" value="Enviar"/>
-									<input style="margin-right: 20px;" class="btn btn-primary" type="reset" value="Limpiar"/>
 									<input class="btn btn-secondary" type="button" value="Cancelar" onclick="window.location.href='ListarProveedores.jsp'"/>
 								</div>
 						</form>

@@ -38,10 +38,7 @@
              		<br>
              			<form name="formIn" method="get" action="InsumosServlet">
 	             			<input type="hidden" name="instruccion" value="insertarBBDD">
-	             			
-	             			<label for "cod_ins">Código</label>
-							<input type="text" name="cod_ins" id="cod_ins">
-						
+	             									
 							<label for "nombre" >Nombre</label>
 							<input  type="text" name="nombre" id="nombre">
 							
