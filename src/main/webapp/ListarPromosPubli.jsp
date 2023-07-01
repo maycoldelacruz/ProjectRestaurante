@@ -40,22 +40,24 @@
 			<div class="main-content">
 
 				<div class="section__content section__content--p30">
+				<a class="btn btn-success"  href="Menu_RSociales.jsp">Menu Promociones</a>
+						
 					<div class="container-fluid">
 
 						<h2>
 							<strong>Promociones publicadas</strong>
 						</h2>
-						<h3>Listado de Promociones</h3>
+						
 					</div>
 						
-					<div class="row m-t-30">
-						<div class="col-md-12">
-						<a href="SubirContenido.jsp">Nuevo</a>
-						<a href="Menu_RSociales.jsp">Menu</a>
+					
 						                    
 							<!-- DATA TABLE-->
-						<div class="table-responsive m-b-40">
-							<table class="table table-borderless table-data3">
+						
+							<div class="col-md-3" style="margin-top: 20px;">
+		             			<a class="btn btn-primary" href="ContenidoServlet?action=list">Nuevo</a>
+							</div>
+							<table class="table ">
 						    	<thead>
 							        <tr>
 							            <th>ID</th>
@@ -86,9 +88,8 @@
 						        </tbody>						            
 						     </table>        
 							</div>
-						</div>
-					</div>
-				</div>
+						
+				
 			</div>
 
 			<!-- CONTENIDO-->

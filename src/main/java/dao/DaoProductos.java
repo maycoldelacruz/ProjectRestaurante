@@ -4,102 +4,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
+import com.mysql.cj.MysqlConnection;
+
 import modelo.Productos;
 
 import util.MySqlConexion;
 
 public class DaoProductos {
-	
-	public static boolean agregarNuevoProducto(Productos nuevoProducto) {
-		Connection miConexion = null;	
-		boolean exito = false;
-
-		try {
-			miConexion = MySqlConexion.getConexion();
-			
-			String SQL = "insert into producto(IdProducto, Nombres, Precio, Stock, Estado) "
-					+ "VALUES(?,?,?,?,?)";
-			
-			PreparedStatement miStatement = miConexion.prepareStatement(SQL);
-			
-			miStatement.setInt(1, nuevoProducto.getCod_prod());
-			miStatement.setString(2, nuevoProducto.getNomb());
-			miStatement.setDouble(3, nuevoProducto.getPrec());
-			miStatement.setInt(4, nuevoProducto.getStoc());
-			miStatement.setString(5, nuevoProducto.getEstad());
-			
-			int filasAfectadas= miStatement.executeUpdate();
-			if (filasAfectadas>0) {
-				exito=true;
-			}
-			miStatement.close();
-		}catch(Exception e){
-			System.err.print("Error al agregar Plato"+ e.getMessage());
-		}
-		return exito;
-	}
-	
-	public static List<Productos> 	listarProductos(){
-		Connection con= MySqlConexion.getConexion();
-		List<Productos> productos = new ArrayList<>();
-		
-		try {
-			String query = "select * from producto";
-			PreparedStatement ps=con.prepareStatement(query);
-			ResultSet rs=ps.executeQuery();
-			
-			while(rs.next()) {
-				Productos producto= new Productos();
-				
-				producto.setCod_prod(rs.getInt("IdProducto"));
-				producto.setNomb(rs.getString("Nombres"));
-				producto.setPrec(rs.getDouble("Precio"));
-				producto.setPrec(rs.getInt("Stock"));
-				producto.setEstad(rs.getString("Estado"));
-				
-				productos.add(producto);
-	
-			}
-			rs.close();
-			ps.close();
-			
-		} catch (Exception e) {
-			System.err.println("Error al listar los contenidos "+ e.getMessage());
-		}finally {
-			MySqlConexion.closeConexion(con);
-		}
-		
-		return productos;
-	}
-
-	public static boolean eliminarProducto(int codProducto){
-		Connection con = MySqlConexion.getConexion();
-        boolean exito = false;
-		
-        try {
-        	String sql = "delete from producto where IdProducto=?";
-        	PreparedStatement ps=con.prepareStatement(sql);
-        	ps.setInt(1, codProducto);
-        	
-        	int filasAfectadas = ps.executeUpdate();
-        	if (filasAfectadas>0) {
-        		exito=true;
-        	}
-        	ps.close();
-		} catch (Exception e) {
-			System.err.println("Error al eliminar el publicación: " + e.getMessage());
-		}finally {
-            MySqlConexion.closeConexion(con);
-        }
-        
-        return exito;
-		
-	}
-	
 	public Productos BuscarProducto(int id) throws SQLException {
 		Productos producto = new Productos();
 		Connection cn = null;
@@ -120,10 +39,59 @@ public class DaoProductos {
 				producto.setStoc(rs.getInt("Stock"));
 				producto.setEstad(rs.getString("Estado"));
 			}	
-		}catch (Exception ex) {
+		} catch (Exception ex) {
 			Logger.getLogger(DaoProductos.class.getName()).log(Level.SEVERE,null,ex);
 		}	
 		return producto;
+	}
+
+	public List<Productos> getProductos()throws Exception{
+		List<Productos> producto = new ArrayList<>();
+		
+		Connection miConexion = null;
+		Statement miStatement = null;
+		ResultSet miResultSet = null;
+		
+		miConexion = MySqlConexion.getConexion();
+		
+		String instruccionsql = "select * from producto";
+		miStatement = miConexion.createStatement();
+		
+		miResultSet = miStatement.executeQuery(instruccionsql);
+		
+		while (miResultSet.next()) {
+			int cod_prod = miResultSet.getInt("IdProducto");
+			String nomb = miResultSet.getString("Nombres");
+			double prec = miResultSet.getDouble("Precio");
+			int stoc = miResultSet.getInt("Stock");
+			String estad = miResultSet.getString("Estado");
+			Productos tempProd = new Productos(cod_prod, nomb, prec, stoc, estad);
+			producto.add(tempProd);			
+		}
+		return producto;
+	}
+
+	public void agregarNuevoProducto(Productos nuevoProducto) {
+		Connection miConexion = null;
+		PreparedStatement miStatement = null;
+		
+		try {
+			miConexion = MySqlConexion.getConexion();
+			
+			String SQL = "insert into producto(IdProducto, Nombres, Precio, Stock, Estado) VALUES(?,?,?,?,?)";
+			
+			miStatement = miConexion.prepareStatement(SQL);
+			
+			miStatement.setInt(1, nuevoProducto.getCod_prod());
+			miStatement.setString(2, nuevoProducto.getNomb());
+			miStatement.setDouble(3, nuevoProducto.getPrec());
+			miStatement.setInt(4, nuevoProducto.getStoc());
+			miStatement.setString(5, nuevoProducto.getEstad());
+			
+			miStatement.execute();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	public Productos getProducto(int codigo) {
@@ -185,15 +153,15 @@ public class DaoProductos {
 		miStatement.execute();
 	}
 
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void eliminarProducto(int codProducto) throws Exception{
+		Connection miConnection = null;
+		PreparedStatement miStatement = null;
+		
+		miConnection = MySqlConexion.getConexion();
+		String sql = "delete from producto where IdProducto=?";
+		miStatement = miConnection.prepareStatement(sql);
+		miStatement.setInt(1, codProducto);
+		miStatement.execute();
+		
+	}
 }

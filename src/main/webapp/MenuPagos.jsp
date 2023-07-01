@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <a href="RegistrarVenta.jsp"><h2 class="text"><span >Registrar Pagos</span></h2></a>
+                                    <a href="RegistrarVentaServlet"><h2 class="text"><span >Registrar Ventas</span></h2></a>
                                     
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>

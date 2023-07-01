@@ -32,6 +32,7 @@
           
              <!-- CONTENIDO-->
              <div class="container justify-content-center">
+             <a href="InsumosServlet"><input type="button" class="btn btn-success" value="Volver"></a>
              	<div class="row justify-content-center">
              		<div class="col-md-9">
              		<h2>Modificar Insumo</h2>
@@ -65,7 +66,7 @@
 										Class.forName("com.mysql.cj.jdbc.Driver");
 									 	String url = "jdbc:mysql://localhost/RESTAURANTE?useTimezOne=true&serverTimezone=UTC";
 									 	String usr = "root";
-									 	String psw = "baobei"; 
+									 	String psw = "adminsi"; 
 										String sql_tipos = "CALL LISTAR_CATEGORIAS";
 										Connection con = DriverManager.getConnection(url,usr,psw); 
 										PreparedStatement psc = con.prepareStatement(sql_tipos);

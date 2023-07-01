@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number"><span>Gestor de Productos</span></h2>
+                                    <h2 class="number"><a href="restaurante.jsp"><span>Ver Sitio Web</span></a></h2>
                                     <div class="icon">
                                         <i class="zmdi zmdi-calendar-note"></i>
                                     </div>

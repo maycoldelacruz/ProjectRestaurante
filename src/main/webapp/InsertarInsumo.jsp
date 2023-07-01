@@ -32,26 +32,30 @@
           
              <!-- CONTENIDO-->
              <div class="container justify-content-center">
+             				          
+				            <a href="Menu_gestionPedidos.jsp"><input type="button" class="btn btn-success" value="Volver"></a>				            
+				        
              	<div class="row justify-content-center">
              		<div class="col-md-9">
-             		<h2>Agregar insumo</h2>
-             		<br>
-             			<form name="formIn" method="get" action="InsumosServlet">
+             		
+             		<form name="formIn" method="get" action="InsumosServlet">
 	             			<input type="hidden" name="instruccion" value="insertarBBDD">
-	             									
-							<label for "nombre" >Nombre</label>
+             				<h2>Agregar insumo</h2>
+             								
+							<label >Nombre</label>
 							<input  type="text" name="nombre" id="nombre">
 							
-							<label for "stk_min" >Stock mínimo</label>
+							<label >Stock mínimo</label>
 							<input  type="text" name="stk_min" id="stk_min">
 							
-							<label for "stk_act" >Stock actual</label>
+							<label >Stock actual</label>
 							<input  type="text" name="stk_act" id="stk_act">
 							
-							<label for"precioxkilo">Precio por kilo</label>
+							<label >Precio por kilo</label>
 							<input type="text" name="preciok" id="preciok">
 							
-							<label for "cod_tipo" >Tipo</label>
+							<label >Categoria</label>
+							
 							<select name="cod_tipo" id="cod_tipo" 
 									style="width: 350px; 
 										height:25px; 
@@ -69,7 +73,7 @@
 									<% } %>
 							
 							</select>		
-							<input class= "btn" type="button" value="Nueva categoría" style="border: 1px solid black; margin-right:20px" 
+							<input class= "btn btn-success" type="button" value="Nueva categoría" style="border: 1px solid black; margin-right:20px" 
 								onclick="window.location.href='InsertarCategoria_Ins.jsp'"/>
 							
 								
@@ -79,6 +83,7 @@
 							</div>
 							
 						</form>
+             		</div>
              		</div>
              	</div>
              </div>

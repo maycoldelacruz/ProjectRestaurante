@@ -34,20 +34,23 @@
           
              <!-- CONTENIDO-->
              <div class="container justify-content-center">
+             
              	<div class="row justify-content-center">
+             		
              		<div class="col-md-13" style="margin-bottom: 30px;">
+             		
              			<div class="d-flex">
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<div class="card">
 									<form name="form" method="get" action="GenerarPedidoServlet">
 									<div class="card-body">
 										<div class="form-group">
-										 	<label>Generar pedido</label>
+										 	<h3><b>Generar pedido </b> </h3>
 										</div>
 										<div class="form-group d-flex">
 											<div class="col-sm-6 d-flex">
 												
-												<select name="cod_ins" class="form-control" style="width: 200px; height:35px;  margin-right: 7px;">
+												<select name="cod_ins" class="form-control" style="width: 380px; height:35px;  margin-right: 7px;">
 													<% 
 														Connection con = MySqlConexion.getConexion();
 														String sql_ins = "CALL LISTA_INSUMOSMPROV";
@@ -58,12 +61,12 @@
 													<option value="<%=rsi.getInt(1)%>"><%=rsi.getString(2) %> </option>
 													<% } %>
 												</select>
-												<button type="submit" name="instruccion" value="buscarInsumo" class="btn btn-outline-info">Buscar</button>
+												<button type="submit" name="instruccion" value="buscarInsumo" class="btn btn-success">Buscar</button>
 											</div>
 										</div>
 										<div class="form-group d-flex" >
-											<div class="col-sm-4">
-												<input type="text" name="codIns" value="${InsumoBuscado.getCod_ins()}" placeholder="ID" class="form-control" readonly>
+											<div class="">
+												<input type="hidden" name="codIns" value="${InsumoBuscado.getCod_ins()}" placeholder="ID" class="form-control" readonly>
 											</div>	
 											<div class="col-sm-8 d-flex">
 												<input type="text" name="nombre" readonly value="${InsumoBuscado.getNombre()}" class="form-control" placeholder="Nombre">
@@ -82,7 +85,7 @@
 												<input type="text" name="stkMin" readonly value="${InsumoBuscado.getStk_min()}" class="form-control" placeholder="Minimo">
 											</div>
 											<div class="col-sm-6">
-												<input type="number" min="1" name="cant" placeholder="" class="form-control" >
+												<input type="number" min="1" name="cant" placeholder="Ingresa Cantidad" class="form-control" >
 											</div>	
 										</div>	
 										<div class="form-group d-flex" >

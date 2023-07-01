@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*, modelo.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.sql.*, util.*, java.util.*, modelo.*" %>
 
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 
 </head>
 
-
+				
 <body class="animsition">
      
      <!-- DIV PRINCIPAL--> 
@@ -71,20 +71,19 @@
 							</div>
 						</div>
 						<div class="form-group d-flex" >
-							<div class="col-sm-4 d-flex">
+							<div class="col-sm-6 d-flex">
 								<input  type="text" name="precio" value="${productoseleccionado.getPrec()}" class="form-control" placeholder="s/.0.00">
 							</div>
 							<div class="col-sm-3">
-								<input type="number" name="cant" value="1" placeholder="" class="form-control">
+								<input type="number" name="cant" value="1" min="1" placeholder="" class="form-control">
 							</div>	
-							<div class="col-sm-4S">
+							<div class="col-sm-3">
 								<input type="text" name="stock" value="${productoseleccionado.getStoc()}" placeholder="stock" class="form-control">
 							</div>	
 						</div>
 					</div>
 						<div class="form-group">
-							<button type="submit" name="accion" value="Agregar" class="btn btn-outline-info">Agregar Producto</button>
-						
+							<button type="submit" name="accion" value="addtolist" class="btn btn-outline-info">Agregar Producto</button>
 						</div>
 					</form>
 				</div>
@@ -95,67 +94,63 @@
 			<div class="col-sm-7">
 				<div class="card">
 					<div class="card-body">
-						<div class="d-flex col-sm-6 ml-auto">
-						<label>NuemroSerie</label>
-						<input type="text" name="NroSerie" value="${nserie}"class="form-control">
+						<div class="d-flex col-sm-6 ml-auto align-items-center">
+							<label>Nro de Serie</label>
+							<input type="text" name="NroSerie" value="${nserie}"class="form-control">
 						</div>
 						<br>
 						<table class="table table-hover">
 							<thead>
-								
 								<tr>
-									<th>Nro</th>
 									<th>Codigo</th>
 									<th>Descripcion</th>
 									<th>Precio</th>
 									<th>Cantidad</th>
 									<th>Subtotal</th>
 									<th>Acciones</th>
-								
 								</tr>
-							
 							</thead>
-
 							<tbody>
-					
-                                <c:forEach var="list" items="${lista}">
-                                <tr>
-                                    <td>${list.getItem()}</td>
-                                    <td>${list.getIdproducto()}</td>
-                                    <td>${list.getDescripcionP()}</td>
-                                    <td>${list.getPrecio()}</td>
-                                    <td>${list.getCantidad()}</td>
-                                    <td>${list.getSubtotal()}</td>
-                                    <td class="d-flex">
-                                        <a href="" class="btn btn-warning">Editar</a>
-                                        <a href="" class="btn btn-danger" style="margin-left: 5px;">Delete</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                       
-					
+					<%-- 
+					<% if (lisTemp != null) { %>
+					<% for (Venta temp: lisTemp) { %>
+					--%>
+						<c:forEach var="list" items="${lista}">
+    							<tr>
+      							 	<td>${list.getItem()}</td>
+      							 	<td>${list.getIdproducto()}</td>
+      							 	<td>${list.getPrecio()}</td>
+      							 	<td>${list.getCantidad()}</td>
+      							 	<td>${list.getSubtotal()}</td>
+        						 	<td class="d-flex">
+        						 		<a href="#" class="btn btn-warning">Editar</a>
+        						 		<a href="#" class="btn btn-danger" style="margin-left: 8px;">Eliminar</a>
+        						 	</td>
+    							</tr>
+    					</c:forEach>
 							</tbody>
 						</table>
 					</div>
-					<div class="card-footer">
-						<input type="submit" name="accion" value="Generar Venta" class="btn btn-success" >
-						<input type="submit" name="accion" value="Cancelar" class="btn btn-danger" >
+					<div class="card-footer d-flex">
+						<div class="col-sm-6">
+							<a href="RegistrarVentaServlet?accion=GenerarVenta" class="btn btn-success">Generar Venta</a>
+							<input type="submit" name="accion" value="Cancelar" class="btn btn-danger" >
+						</div>
+						<div class="col-sm-4 ml-auto">
+							<input type="text" name="txtTotal" value="S/ ${totalPagar}" readonly class="form-control">
+						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>
-		</div>
 	    <!-- END PAGE CONTAINER-->
-	  
-	   
-	   
 	 </div>
+	</div>
 	 <!-- END DIV PRINCIPAL-->   
 	 
      <jsp:include page="Main_Vendor.jsp" />
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

@@ -158,11 +158,7 @@
           </div>
         </nav>
 
-        <a href="#" class="btn btn-secondary">
-          <span class="text text-1">Reservar Mesa</span>
-
-          <span class="text text-2" aria-hidden="true">Reservar Mesa</span>
-        </a>
+        
 
         <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
           <span class="line line-1"></span>
@@ -690,6 +686,69 @@
             </div>
           </div>
         </section>
+        <main>
+        <section class="section event bg-black-10" aria-label="event">
+          <div class="container">
+            <p class="section-subtitle label-2 text-center">
+              Publicaciones recientes
+            </p>
+
+            <h2 class="section-title headline-1 text-center">
+              Próximos Eventos
+            </h2>
+
+            <ul class="grid-list">
+            	
+            <%
+            	Connection con = MySqlConexion.getConexion();
+            	String sql = "call ListarPublicacionesPublicadas()";
+            	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            	PreparedStatement ps = con.prepareStatement(sql);
+            	ResultSet rs = ps.executeQuery();
+            	while (rs.next()) {
+            %>
+              <li>
+                <div class="event-card has-before hover:shine">
+                  <div
+                    class="card-banner img-holder"
+                    style="--width: 350; --height: 450">
+                    <img
+                      src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(rs.getBytes("archivo")) %>"
+                      width="350"
+                      height="450"
+                      loading="lazy"
+                      alt="Flavour so good youâ€™ll try to eat with your eyes."
+                      class="img-cover" />
+
+                    <time class="publish-date label-2"
+                      ><%= dateFormat.format(rs.getDate("fecha_publicacion")) %></time
+                    >
+                  </div>
+
+                  <div class="card-content">
+                    <p class="card-subtitle label-2 text-center">
+                    <%= rs.getString("titulo") %>
+                    </p>
+
+                    <h3 class="card-title title-2 text-center">
+                    
+                    </h3>
+                  </div>
+                </div>
+              </li>
+             <% } %>
+            </ul>
+
+            <a href="#" class="btn btn-primary">
+              <span class="text text-1">Ver nuestro blog</span>
+
+              <span class="text text-2" aria-hidden="true"
+                >Ver nuestro blog</span
+              >
+            </a>
+          </div>
+        </section>
+      </main>
         
         
         

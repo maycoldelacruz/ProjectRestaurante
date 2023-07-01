@@ -31,20 +31,22 @@
              <!-- END MENU PANEL-->
           
              <!-- CONTENIDO-->
-            <div class="container justify-content-center">
-             	<div class="row justify-content-center">
-             		<div class="col-md-12">
-            		<div class="col-md-10">
-	            		<div class="col-md-10">
-	            			<div class="col-md-5">
+            <div class="main-content">
+
+				<div class="section__content section__content--p30">
+				<a class="btn btn-success"  href="Menu_gestionPedidos.jsp">Menu Pedidos</a>
+						
+             		<div class="container-fluid">
+            		
+	            		
 	             				<h2>Listado de Insumos</h2>
-	             			</div>
-	             			<div class="col-md-3" style="margin-top: 20px;">
+	             			
+	             			
+						</div>
+             		
+             		<div class="col-md-3" style="margin-top: 20px;">
 		             			<input class="btn btn-primary" type="button" value="Agregar" onclick="window.location.href='InsertarInsumo.jsp'"/>
 							</div>
-						</div>
-             		<br>
-             		
              		<table class="table">
 						<thead>
 							<tr>
@@ -73,10 +75,7 @@
 							 <%} %>
 						</tbody>
 					</table>
-             			
-					
-				</div>
-            </div>
+             		
             </div>
              </div>
              <!-- CONTENIDO-->

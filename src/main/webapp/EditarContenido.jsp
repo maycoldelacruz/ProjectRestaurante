@@ -37,7 +37,7 @@
 			  <% Contenido obj = (Contenido) request.getAttribute("contenido"); %>
 			  
 			  <div class="row justify-content">
-			    <div class="col-md-8">
+			    <div class="col-md-6">
 			    
 			      <form action="ContenidoServlet?action=update" id="frmagregar" method="post" enctype="multipart/form-data">
 			        <div id="contact-form" class="form-container" data-form-container>
@@ -71,7 +71,7 @@
 				          
 				          <div id="vistaPreviaImagen" class="form-group" > 
 				            <label for="imagenVistaPrevia">Vista previa:</label>
-				            <img id="imagenVistaPrevia" class="img-fluid" src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(obj.getArchivo()) %>" >
+				            <img id="imagenVistaPrevia" class="img-fluid" src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(obj.getArchivo()) %>" width="200px">
 				          </div>
 				          
 				          <div class="row">

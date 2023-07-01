@@ -93,10 +93,10 @@
                             <div class="col-md-12">
                                 <div class="au-breadcrumb-content">
                                     <div class="au-breadcrumb-left">
-                                        <span class="au-breadcrumb-span">Tu estas aqui:</span>
+                                        <span class="au-breadcrumb-span">Menús:</span>
                                         <ul class="list-unstyled list-inline au-breadcrumb__list">
                                             <li class="list-inline-item active">
-                                                <a href="index.jsp">Inicio</a>
+                                                <a href="index.jsp">Principal</a>
                                             </li>
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
@@ -108,13 +108,12 @@
                                             <li class="list-inline-item"><a href="Menu_RSociales.jsp">Promociones</a></li>
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
+                                                
+                                            <li class="list-inline-item"><a href="Menu_gestionPedidos.jsp">Pedidos</a></li>
+                                        
                                             </li>
                                             <li class="list-inline-item"><a href="MenuPagos.jsp">Pagos</a></li>
-                                            <li class="list-inline-item seprate">
-                                                <span>/</span>
-                                            </li>
-                                            <li class="list-inline-item"><a href="Menu_gestionPedidos.jsp">Pedidos</a></li>
-                                        </ul>
+                                            </ul>
                                     </div>
                                 </div>
                             </div>
