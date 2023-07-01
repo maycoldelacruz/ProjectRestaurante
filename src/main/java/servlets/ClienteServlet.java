@@ -1,6 +1,6 @@
 package servlets;
 
-import jakarta.servlet.RequestDispatcher;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,79 +14,57 @@ import java.util.List;
 import modelo.Clientes;
 
 import dao.DaoClients;
-
-/**
- * Servlet implementation class ClienteServlet
- */
+@WebServlet("/ClienteServlet")
 public class ClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public ClienteServlet() {
+		super();
+	}
        
-	private DaoClients daoCl;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	 public void init() throws ServletException {
-	        super.init();
-	        
-	        try {
-				daoCl = new DaoClients();
-			} catch (Exception e) {
-				throw new ServletException(e);
-			}
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		String comando = request.getParameter("instruccion");
+String action = request.getParameter("action");
 		
-		if(comando==null) comando = "listar";
+		if(action !=null) {
 		
-		switch(comando) {
-		case "listar":
-			obtenerClientes(request, response);
-			break;
-		case "insertarBBDD":
-			agregarClientes(request, response);
-			break;
-		case "cargar":
-			try {
-			cargarClientes(request, response);
-			}catch (Exception e){
-				e.printStackTrace();
-			}	
-			break;
-		case "actualizarBBDD":
-			try {
-				actualizarCliente(request, response);
-			}catch (Exception e){
-				e.printStackTrace();
-			}
-			break;
-		case"eliminar":
-			try {
-				eliminarClientes(request,response);
-			}catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			break;
-		default :
-			obtenerClientes(request, response);
+			switch(action) {
+				case "listar":
+					listarClientes(request, response);
+					break;
+				case "delete":
+					//eliminarClientes(request, response);
+					break;
+				default :
+					mostrarError(response, "Acción inválida get ");
+		            break;
+				}
+		}else {
+				mostrarError(response, "Acción no especificada get ");
 		}
 	}
 
-	private void eliminarClientes(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		int cod_Cli= Integer.parseInt(request.getParameter("IdCliente"));
-		 daoCl.eliminarCliente(cod_Cli);
-		 obtenerClientes(request, response);
+	private void mostrarError(HttpServletResponse response, String mensaje) throws IOException {
+		System.err.println("Error: " + mensaje);
+        response.sendRedirect("Footer.jsp");
+	}
+
+	private void listarClientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Clientes> clientes= DaoClients.listarClientes();
+		request.setAttribute("clientes", clientes);
+		request.getRequestDispatcher("ListarCliente.jsp").forward(request, response);
 		
 	}
 
+	private void eliminarClientes(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		int codcliente= Integer.parseInt(request.getParameter("IdCliente"));
+		boolean exito=DaoClients.eliminarCliente(codcliente);
+		 if(exito) {
+			 response.sendRedirect("ClienteServlet?action=listar");
+		 }else {
+	            mostrarError(response, "Error al eliminar la Cliente");
+	        }
+		
+	}
+/*
 	private void actualizarCliente(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		
 		int cod_prod = Integer.parseInt(request.getParameter("codi"));
@@ -152,9 +130,8 @@ public class ClienteServlet extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	*/
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

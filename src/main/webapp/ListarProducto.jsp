@@ -17,7 +17,7 @@
 
 </head>
 <%
-		List<Productos> lisProductos=(List<Productos>) request.getAttribute("LISTAPRODUCTOS");
+		List<Productos> lisProductos=(List<Productos>) request.getAttribute("productos");
 	%>
 
 <body class="animsition">
@@ -44,6 +44,8 @@
              <!-- CONTENIDO-->
              <div class="d-flex text-center">
 			<div class="col-sm-8">
+						<a href="InsertarProducto.jsp">Nuevo</a>
+						<a href="MenuPagos.jsp">Menu</a>
 				<div class="table table-hover text-center">
 						<h2>Listado de Productos</h2>
 							
@@ -65,15 +67,14 @@
 									<td ><%= tempProd.getPrec() %></td>	
 									<td><%= tempProd.getStoc() %></td>
 									<td><%= tempProd.getEstad() %></td>		
-									<td><a href="ProductosServlet?instruccion=cargar&IdProducto=<%= tempProd.getCod_prod()%>">Actualizar</a></td>	
-									<td><a href="ProductosServlet?instruccion=eliminar&IdProducto=<%= tempProd.getCod_prod()%>">Eliminar</a></td>	
+									<td><a href="ProductosServlet?action=cargar&IdProducto=<%= tempProd.getCod_prod()%>">Actualizar</a></td>	
+									<td><a href="ProductosServlet?action=delete&IdProducto=<%= tempProd.getCod_prod()%>">Eliminar</a></td>	
 								</tr>		
 								<% } %>
 							
 							</table>
 							<div style="margin-top: 20px;" class="btn">
-							<input class="btn btn-primary" type="button" value="Agregar" onclick="window.location.href='InsertarProducto.jsp'"/>
-							<!-- <input class="btn btn-primary" type="button" value="Modificar" onclick="window.location.href='ModificarInsumo.jsp'"/> -->
+							
 							</div>
 				
 				</div>

@@ -13,13 +13,14 @@ public class Productos {
 	
 	
 	public Productos() {
+		super();
 	}
 
 
 
 
-
 	public Productos(int cod_prod, String nomb, double prec, int stoc, String estad) {
+		super();
 		this.cod_prod = cod_prod;
 		this.nomb = nomb;
 		this.prec = prec;
@@ -28,8 +29,6 @@ public class Productos {
 	}
 
 	
-	
-
 
 	public Productos(String nomb, double prec, int stoc, String estad) {
 		this.nomb = nomb;
@@ -38,21 +37,6 @@ public class Productos {
 		this.estad = estad;
 	}
 
-
-
-
-
-
-
-
-
-	public String toString() {
-		return "Insumos [cod_prod=" +cod_prod + ",stoc=" + stoc + ",nomb=" + nomb + 
-				", estad=" + estad + ",prec=" + prec + "]";
-	}
-	
-	
-	
 	public int getCod_prod() {
 		return cod_prod;
 	}

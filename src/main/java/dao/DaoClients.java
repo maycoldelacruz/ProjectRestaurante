@@ -16,12 +16,47 @@ import com.mysql.cj.MysqlConnection;
 import util.MySqlConexion;
 
 import modelo.Clientes;
+import modelo.Productos;
 
 
 
 
 public class DaoClients {
 
+	public static List<Clientes> 	listarClientes(){
+		Connection con= MySqlConexion.getConexion();
+		List<Clientes> clientes = new ArrayList<>();
+		
+		try {
+			String query = "select * from cliente";
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				Clientes cliente= new Clientes();
+				
+				cliente.setCod_Cli(rs.getInt("IdCliente"));
+				cliente.setDni(rs.getString("DNI"));
+				cliente.setNomb(rs.getString("nombres"));
+				cliente.setDirecci(rs.getString("direccion"));
+				cliente.setEstad(rs.getString("Estado"));
+				
+				clientes.add(cliente);
+	
+			}
+			rs.close();
+			ps.close();
+			
+		} catch (Exception e) {
+			System.err.println("Error al listar los clientes "+ e.getMessage());
+		}finally {
+			MySqlConexion.closeConexion(con);
+		}
+		
+		return clientes;
+	}
+	
+	
 	public List<Clientes> getClientes() throws SQLException {
 		List<Clientes> cliente = new ArrayList<>();
 		
@@ -135,16 +170,25 @@ public class DaoClients {
 		
 	}
 
-	public void eliminarCliente(int cod_Cli) throws SQLException {
-		Connection miConnection = null;
-		PreparedStatement miStatement = null;
+	public static boolean  eliminarCliente(int cod_Cli) throws SQLException {
+		Connection con = MySqlConexion.getConexion();
+		boolean exito=false;
 		
-		miConnection = MySqlConexion.getConexion();
-		String sql = "delete from cliente where IdCliente=?";
-		miStatement = miConnection.prepareStatement(sql);
-		miStatement.setInt(1, cod_Cli);
-		miStatement.execute();
-		
+		try {
+			String sql = "delete from cliente where IdCliente=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1, cod_Cli);
+			int filasAfectadas=ps.executeUpdate();
+			if (filasAfectadas>0) {
+				exito=true;
+			}
+			ps.close();
+		} catch (Exception e) {
+			System.err.println("Error al eliminar el publicación: " + e.getMessage());
+		}finally {
+            MySqlConexion.closeConexion(con);
+        }
+		return exito;
 	}
 
 	public Clientes BuscarCliente(String dni) {
