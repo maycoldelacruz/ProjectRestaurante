@@ -20,7 +20,7 @@ public class DaoCategoria {
 		
 		miConexion = MySqlConexion.getConexion();
 		
-		String instruccionSql = "select * FROM TIPO_INSUMOS";
+		String instruccionSql = "select * FROM TIPO_INSUMO";
 		
 		miStatement  = miConexion.createStatement();
 		
@@ -42,7 +42,7 @@ public class DaoCategoria {
 		
 		try {
 			miConexion = MySqlConexion.getConexion();
-			String SQL = "INSERT INTO TIPO_INSUMOS(COD_TIPO, NOMBRE) VALUES(?,?)";
+			String SQL = "INSERT INTO TIPO_INSUMO(COD_TIPO, NOMBRE) VALUES(?,?)";
 			miStatement = miConexion.prepareStatement(SQL);
 			
 			miStatement.setInt(1, nuevoTipo.getCod_tipo());

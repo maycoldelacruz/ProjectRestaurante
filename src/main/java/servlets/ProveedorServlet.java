@@ -17,6 +17,7 @@ import dao.DaoProveedores;
 /**
  * Servlet implementation class ProveedorServlet
  */
+@WebServlet("/ProveedorServlet")
 public class ProveedorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

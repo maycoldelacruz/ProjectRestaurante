@@ -13,9 +13,7 @@ import java.util.List;
 
 import dao.DaoCategoria;
 
-/**
- * Servlet implementation class CategoriasServlet
- */
+@WebServlet("/CategoriasServlet")
 public class CategoriasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

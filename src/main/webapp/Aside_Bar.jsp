@@ -64,11 +64,7 @@
                               </span>
                           </a>
                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                              <!-- 
-                              <li>
-                                  <a href="Index.jsp">
-                                      <i class="fas fa-building"></i>Empresa</a>
-                              </li> -->
+                              
                               
                               <li>
                                <a class="js-arrow" href="registration.jsp">
@@ -138,8 +134,7 @@
                                         <i class="fab fa-searchengin"></i>Consultar</a>
                                 </li>
                             </ul>
-                        </li>
-                        <!-- 
+                        </li> 
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-clipboard-check"></i>Ventas
@@ -168,7 +163,7 @@
                                 </li>
                                 
                             </ul>
-                        </li> -->
+                        </li>
                         
                         <li class="has-sub">
                             <a class="js-arrow" href="#">

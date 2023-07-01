@@ -16,13 +16,15 @@
 	<link rel="preload" as="image" href="./images/hero-slider-1.jpg" />
     <link rel="preload" as="image" href="./images/hero-slider-2.jpg" />
     <link rel="preload" as="image" href="./images/hero-slider-3.jpg" />
-
 </head>
 <body>
 	<!-- 
     - #PRELOADER
   	-->
-    
+    <div class="preload" data-preaload>
+      <div class="circle"></div>
+      <p class="text">Perú<br />Criollo</p>
+    </div>
     
     <!-- 
     - #TOP BAR
@@ -50,7 +52,7 @@
         </div>
 
         <a href="tel:+11234567890" class="topbar-item link">
-          <div class="icon">	
+          <div class="icon">
             <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
           </div>
 
@@ -106,15 +108,6 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#menu" class="navbar-link hover-underline">
-                <div class="separator"></div>
-
-                <span class="span">Menúes</span>
-              </a>
-            </li>
-
-            <li class="navbar-item">
-
               <a href="#about" class="navbar-link hover-underline">
                 <div class="separator"></div>
 
@@ -698,74 +691,7 @@
           </div>
         </section>
         
-<<<<<<< HEAD
-        <!-- 
-        - #EVENT
-      -->
-
-        <section class="section event bg-black-10" aria-label="event">
-          <div class="container">
-            <p class="section-subtitle label-2 text-center">
-              Publicaciones recientes
-            </p>
-
-            <h2 class="section-title headline-1 text-center">
-              Próximos Eventos
-            </h2>
-
-            <ul class="grid-list">
-            	
-            <%
-            	Connection con = MySqlConexion.getConexion();
-            	String sql = "call ListarPublicacionesPublicadas()";
-            	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            	PreparedStatement ps = con.prepareStatement(sql);
-            	ResultSet rs = ps.executeQuery();
-            	while (rs.next()) {
-            %>
-              <li>
-                <div class="event-card has-before hover:shine">
-                  <div
-                    class="card-banner img-holder"
-                    style="--width: 350; --height: 450">
-                    <img 
-                      src="data:image/jpeg;base64,<%= Base64.getEncoder().encodeToString(rs.getBytes("archivo")) %>"
-                      width="350"
-                      height="450"
-                      loading="lazy"
-                      alt="Flavour so good youâ€™ll try to eat with your eyes."
-                      class="img-cover" />
-
-                    <time class="publish-date label-2"
-                      ><%= dateFormat.format(rs.getDate("fecha_publicacion")) %></time
-                    >
-                  </div>
-                  <div class="card-content">
-                    <p class="card-subtitle label-2 text-center">
-                    <%= rs.getString("titulo") %>
-                    </p>
-
-                    <h3 class="card-title title-2 text-center">
-                    <%= rs.getString("descripcion") %>
-                    </h3>
-                  </div>
-                </div>
-              </li>
-             <% } %>
-            </ul>
-
-            <a href="#" class="btn btn-primary">
-              <span class="text text-1">Ver nuestro blog</span>
-
-              <span class="text text-2" aria-hidden="true"
-                >Ver nuestro blog</span
-              >
-            </a>
-          </div>
-        </section>
-=======
         
->>>>>>> 75577b0e8d8f9b3a497adcd931bac74080920665
         
 
     	</article>
@@ -791,7 +717,7 @@
             </a>
 
             <address class="body-4">
-              Avenida Paseo De La RepÃºblica, Miraflores, Lima
+              Avenida Paseo De La República, Miraflores, Lima
             </address>
 
             <a href="mailto:booking@grilli.com" class="body-4 contact-link"

@@ -6,6 +6,12 @@ public class GenerarPedido {
 	private double precio, subtotoal, monto;
 	private Date fechaPedido, fechaEntrega ;
 	private String nom_ins, nom_prov;
+	private  String estado;
+
+	
+	public GenerarPedido() {
+		super();
+	}
 
 	public GenerarPedido(int num_pedido, int cod_ins, int cod_prov, int cantidad, double subtotoal, double monto,
 			Date fechaPedido, Date fechaEntrega) {
@@ -35,12 +41,30 @@ public class GenerarPedido {
 		this.nom_prov = nom_prov;
 	}
 
+	public GenerarPedido(int cod_ins, String nom_ins, int cod_prov,  String nom_prov, int cantidad, double precio, String estado) {
+		this.cod_ins = cod_ins;
+		this.cod_prov = cod_prov;
+		this.cantidad = cantidad;
+		this.precio = precio;
+		this.nom_ins = nom_ins;
+		this.nom_prov = nom_prov;
+		this.estado = estado;
+	}
+	
 	public int getNum_pedido() {
 		return num_pedido;
 	}
 
 	public void setNum_pedido(int num_pedido) {
 		this.num_pedido = num_pedido;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public int getCod_ins() {

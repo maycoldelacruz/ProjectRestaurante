@@ -71,7 +71,7 @@
                             </div>
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <h2 class="number"><span>Pagos</span></h2>
+                                    <h2 class="number"><a href="MenuPagos.jsp"><span>Pagos</span></a></h2>
                                     <div class="icon">
                                         <i class="zmdi zmdi-money"></i>
                                     </div>

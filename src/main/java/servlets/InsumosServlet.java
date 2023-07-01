@@ -2,7 +2,7 @@ package servlets;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,6 +17,7 @@ import dao.DaoInsumos;
 /**
  * Servlet implementation class InsumosServlet
  */
+@WebServlet("/InsumosServlet")
 public class InsumosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,7 +35,7 @@ public class InsumosServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String comando = request.getParameter("instruccion");
-		
+		System.out.print(comando);
 		if(comando==null) comando = "listar";
 		
 		switch(comando) {

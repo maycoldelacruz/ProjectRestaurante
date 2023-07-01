@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@ page import="java.util.* , modelo.*, java.sql.*" %>
+<%@ page import="java.util.* , modelo.*, java.sql.*, util.*" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,12 +58,9 @@
 										display: block;
 										margin-bottom: 20px;">
 									<% 
-										Class.forName("com.mysql.cj.jdbc.Driver");
-									 	String url = "jdbc:mysql://localhost/RESTAURANTE?useTimezOne=true&serverTimezone=UTC";
-									 	String usr = "root";
-									 	String psw = "baobei"; 
+									Connection con=MySqlConexion.getConexion();
 										String sql_tipos = "CALL LISTAR_CATEGORIAS";
-										Connection con = DriverManager.getConnection(url,usr,psw); 
+										
 										PreparedStatement psc = con.prepareStatement(sql_tipos);
 										ResultSet rsc = psc.executeQuery();
 										while(rsc.next()){

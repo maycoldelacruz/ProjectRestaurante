@@ -14,12 +14,6 @@ public class DaoVenta {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
 	public String GenerarSerie() {
 		Connection cn = null;
 		PreparedStatement ps = null;

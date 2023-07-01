@@ -47,7 +47,7 @@
                             
                             <div class="col-md-6 col-lg-3">
                                 <div class="statistic__item">
-                                    <a href="#"><h2 class="text"><span >Ver pedidos realizados</span></h2></a>
+                                    <a href="GenerarPedidoServlet?instruccion=visualizar"><h2 class="text"><span >Ver pedidos realizados</span></h2></a>
                                     
                                     <div class="icon">
                                         <i class="zmdi zmdi-account-o"></i>

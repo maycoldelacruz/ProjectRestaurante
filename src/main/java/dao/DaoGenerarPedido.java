@@ -11,6 +11,7 @@ import java.util.List;
 
 import modelo.GenerarPedido;
 import modelo.Insumos;
+import modelo.Pedido;
 import util.MySqlConexion;
 
 public class DaoGenerarPedido {
@@ -217,4 +218,107 @@ public class DaoGenerarPedido {
 	}
 
 
+	public GenerarPedido getDetails(int idPedido) {
+		GenerarPedido pedido = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int cod = idPedido;
+
+		try {
+			con = MySqlConexion.getConexion();
+			
+			String SQL = "SELECT DP.COD_INS, I.NOMBRE AS INS, DP.COD_PROV, P.NOMBRE AS PROV, DP.CANTIDAD, DP.PRECIO_KILO, DP.ESTADO FROM DETALLE_PEDIDO_PROV DP "
+					+ "INNER JOIN INSUMOS I ON I.COD_INS = DP.COD_INS "
+					+ "INNER JOIN PROVEEDOR P ON P.COD_PROV = DP.COD_PROV "
+					+ "WHERE NRO_PEDIDO = ?";
+			
+			ps = con.prepareStatement(SQL);
+			
+			ps.setInt(1, cod);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()){
+					
+			String nomIns = rs.getString("INS");
+			int codIns = rs.getInt("COD_INS");
+			String nomProv = rs.getString("PROV");
+			String estado = rs.getString("ESTADO");
+			int codProv = rs.getInt("COD_PROV");
+			int cantidad = rs.getInt("CANTIDAD");
+			double precio = rs.getDouble("PRECIO_KILO");
+			
+			pedido = new GenerarPedido(codIns, nomIns, codProv, nomProv, cantidad, precio, estado);
+			
+			}else {
+				throw new Exception ("No encontramos el pedido con código "+ cod);
+			}
+		}catch(Exception e) {
+		}
+		return pedido;
+	}
+
+	public List<GenerarPedido> getPedidosDetallados(int idPedido) {
+		List <GenerarPedido> pedido = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			con = MySqlConexion.getConexion();
+			
+			String SQL = "SELECT DP.COD_INS, I.NOMBRE AS INS, DP.COD_PROV, P.NOMBRE AS PROV, DP.CANTIDAD, DP.PRECIO_KILO, DP.ESTADO FROM DETALLE_PEDIDO_PROV DP "
+					+ "INNER JOIN INSUMOS I ON I.COD_INS = DP.COD_INS "
+					+ "INNER JOIN PROVEEDOR P ON P.COD_PROV = DP.COD_PROV "
+					+ "WHERE DP.NRO_PEDIDO = ?";
+			
+			ps = con.prepareStatement(SQL);
+			ps.setInt(1, idPedido);
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+					
+			String nomIns = rs.getString("INS");
+			int codIns = rs.getInt("COD_INS");
+			String nomProv = rs.getString("PROV");
+			String estado = rs.getString("ESTADO");
+			int codProv = rs.getInt("COD_PROV");
+			int cantidad = rs.getInt("CANTIDAD");
+			double precio = rs.getDouble("PRECIO_KILO");
+			
+			GenerarPedido pedidoTemp = new GenerarPedido(codIns, nomIns, codProv, nomProv, cantidad, precio, estado);
+			pedido.add(pedidoTemp);
+			
+			}
+		}catch(Exception e) {
+		}
+		return pedido;
+	}
+	public List<Pedido> getPedidos() throws SQLException {
+		List <Pedido> pedidos = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		con = MySqlConexion.getConexion();
+		
+		String sql = "SELECT * FROM PEDIDO_PROV";
+		
+		ps = con.prepareStatement(sql);
+		rs = ps.executeQuery();
+				
+		while(rs.next()) {
+			int num = rs.getInt("nro_pedido");
+			Date fpedido = rs.getDate("FECHA_PEDIDO");
+			Date fentrega = rs.getDate("FECHA_ENTREGA");
+			String estado = rs.getString("ESTADO");
+			
+			Pedido tempPed = new Pedido(num, estado, fpedido, fentrega);
+			pedidos.add(tempPed);
+		}
+		
+		return pedidos;
+	}
+	
 }

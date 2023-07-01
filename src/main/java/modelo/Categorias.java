@@ -4,6 +4,10 @@ public class Categorias {
 	private int cod_tipo;
 	private String nom_tipo;
 	
+	public Categorias() {
+		
+	}
+	
 	public Categorias(int cod_tipo, String nom_tipo) {
 		this.cod_tipo = cod_tipo;
 		this.nom_tipo = nom_tipo;

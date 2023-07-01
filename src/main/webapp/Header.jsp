@@ -101,7 +101,19 @@
                                             <li class="list-inline-item seprate">
                                                 <span>/</span>
                                             </li>
-                                            <li class="list-inline-item">Inicio</li>
+                                            <li class="list-inline-item"><a href="index.jsp">Inicio</a></li>
+                                            <li class="list-inline-item seprate">
+                                                <span>/</span>
+                                            </li>
+                                            <li class="list-inline-item"><a href="Menu_RSociales.jsp">Promociones</a></li>
+                                            <li class="list-inline-item seprate">
+                                                <span>/</span>
+                                            </li>
+                                            <li class="list-inline-item"><a href="MenuPagos.jsp">Pagos</a></li>
+                                            <li class="list-inline-item seprate">
+                                                <span>/</span>
+                                            </li>
+                                            <li class="list-inline-item"><a href="Menu_gestionPedidos.jsp">Pedidos</a></li>
                                         </ul>
                                     </div>
                                 </div>

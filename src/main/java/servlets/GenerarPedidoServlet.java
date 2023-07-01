@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.GenerarPedido;
 import modelo.Insumos;
+import modelo.Pedido;
 import modelo.Proveedores;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ import dao.DaoGenerarPedido;
 /**
  * Servlet implementation class GenerarPedidoServlet
  */
+@WebServlet("/GenerarPedidoServlet")
 public class GenerarPedidoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,7 +41,7 @@ public class GenerarPedidoServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String comando = request.getParameter("instruccion");
-		
+		System.out.print(comando);
 		if(comando==null) comando = "listar";
 		
 		switch(comando) {
@@ -101,6 +103,28 @@ public class GenerarPedidoServlet extends HttpServlet {
 				e1.printStackTrace();
 			}          
 			break;
+		case "details":
+			try {
+				obtenerPedidoDetallado(request, response);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			break;
+		case "detailss":
+			try {
+				obtenerListaPedidoDetallado(request, response);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			break;
+		case "visualizar":
+			try {
+				obtenerPedidos(request, response);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			break;
+			
 		default :
 			try {
 				obtenerPedido(request, response);
@@ -187,11 +211,48 @@ public class GenerarPedidoServlet extends HttpServlet {
 		
 		daopedido.nuevoPedido(pedido, datum1, datum2);
 		
-		response.sendRedirect("Menu_gestionPedidos.jsp");
+		response.sendRedirect("GenerarPedidoServlet?instruccion=visualizar");
 	}
 
-	
+	private void obtenerListaPedidoDetallado(HttpServletRequest request, HttpServletResponse response) {
+		List<GenerarPedido> pedidode;
+		int idPedido = Integer.parseInt(request.getParameter("NroPedido"));
+		try {
+			pedidode = daopedido.getPedidosDetallados(idPedido);
+			
+			request.setAttribute("LISTADET_PEDIDOS", pedidode);
+			
+			RequestDispatcher miDispatcher = request.getRequestDispatcher("/PedidoDetalle.jsp");
+			miDispatcher.forward(request, response);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
-	
+	private void obtenerPedidoDetallado(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int idPedido = Integer.parseInt(request.getParameter("NroPedido"));
+		
+		GenerarPedido pe = daopedido.getDetails(idPedido);
+		
+		request.setAttribute("Pedido", pe);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/PedidoDetalle.jsp");
+		
+		dispatcher.forward(request, response);
+	}
+
+	private void obtenerPedidos(HttpServletRequest request, HttpServletResponse response) {
+		List<Pedido> pedidosre;
+		try {
+			pedidosre = daopedido.getPedidos();
+			
+			request.setAttribute("LISTASEG_PEDIDOS", pedidosre);
+			
+			RequestDispatcher miDispatcher = request.getRequestDispatcher("/PedidosRealizados.jsp");
+			miDispatcher.forward(request, response);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
